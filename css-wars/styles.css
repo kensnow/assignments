@@ -1,0 +1,95 @@
+
+
+body {
+    background: #111111;
+    margin: 0 auto;
+    width: 70%;
+
+}
+
+h1 {
+    color: #E2E80F
+    
+}
+
+p {
+    color: #eeeeee;
+}
+
+p .credits {
+
+    text-decoration: underline;
+    color: #49DAFF;
+}
+
+p .credits:hover{
+
+    cursor: pointer;
+}
+
+#film-description {
+    font-size: .8em;
+    font-style: italic;
+}
+
+#scrolling {
+
+    height: 800px;
+    overflow: hidden;
+    position: relative;
+
+}
+
+#scrolling p,h1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 20px;
+    text-align: center;
+    /* Position Start */
+    -moz-transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    /* ANIMATE properties*/
+    -moz-animation: scroll-up 5s linear infinte;
+    -webkit-animation: scroll-up 5s linear infinte;
+    animation: scroll-up 5s linear infinte;
+
+}
+
+/* move it */
+@-moz-keyframes #scrolling {
+    0% { 
+        -moz-transform: translateY(100%);
+    }
+    100% {
+        -moz-transform: translateY(-100%);
+    } 
+
+}
+
+@-webkit-keyframes #scrolling {
+    0% {
+        -webkit-transform: translateY(100%);
+    }
+    100% {
+        -webkit-transform: translateY(-100%);
+    }
+
+}
+
+@keyframes #scrolling {
+    0% {
+        -moz-transform: translateY(100%);
+        -webkit-transform: translateY(100%);
+        transform:translateY(100%);
+    }
+    100% {
+        -moz-transform: translateY(-100%);
+        -webkit-transform: translateY(-100%);
+        transform:translateY(-100%);
+        
+    }
+
+}
