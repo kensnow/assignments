@@ -8,7 +8,7 @@ body {
 }
 
 h1 {
-    color: #E2E80F
+    color: #E2E80F;
     
 }
 
@@ -31,7 +31,7 @@ p .credits:hover{
     font-size: .8em;
     font-style: italic;
 }
-
+/*
 #scrolling {
 
     height: 800px;
@@ -52,44 +52,38 @@ p .credits:hover{
     -webkit-transform: translateY(100%);
     transform: translateY(100%);
     /* ANIMATE properties*/
-    -moz-animation: scroll-up 5s linear infinte;
-    -webkit-animation: scroll-up 5s linear infinte;
-    animation: scroll-up 5s linear infinte;
+    -moz-animation: move 5s linear infinte;
+    -webkit-animation: move 5s linear infinte;
+    animation: move 5s linear infinte;
+ 
 
 }
 
 /* move it */
-@-moz-keyframes #scrolling {
-    0% { 
-        -moz-transform: translateY(100%);
-    }
-    100% {
-        -moz-transform: translateY(-100%);
-    } 
+
+@-moz-keyframes move {
+    0% { -moz-transform: translateY(100%);}
+    100% { -moz-transform: translateY(-100%);} 
 
 }
 
-@-webkit-keyframes #scrolling {
-    0% {
-        -webkit-transform: translateY(100%);
-    }
-    100% {
-        -webkit-transform: translateY(-100%);
-    }
+@-webkit-keyframes move {
+    0% { -webkit-transform: translateY(100%);}
+    100% { -webkit-transform: translateY(-100%);}
 
 }
 
-@keyframes #scrolling {
-    0% {
-        -moz-transform: translateY(100%);
+@keyframes move {
+    0% { -moz-transform: translateY(100%);
         -webkit-transform: translateY(100%);
-        transform:translateY(100%);
+        transform: translateY(100%);
     }
     100% {
         -moz-transform: translateY(-100%);
         -webkit-transform: translateY(-100%);
-        transform:translateY(-100%);
+        transform: translateY(-100%);
         
     }
 
 }
+*/
