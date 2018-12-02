@@ -1,0 +1,47 @@
+
+
+div {
+    height: 100px;
+    /* margin: 0px 0px; */
+    box-sizing: border-box;
+    
+}
+
+.row {
+    height: 100px;
+    width: 620px;
+    margin: 5px 0px;
+}
+
+.pink {
+    background:#f5c6d6;
+    margin: 5px;
+    width: 600px;
+}
+
+.dark-pink {
+    display: inline-block;
+    background:#EE2E84;
+    width: 140px;
+    margin: 5px;
+}
+
+.light-blue {
+    display: inline-block;
+    background:#85CFD8;
+    width: 300px;
+    margin: 5px;
+}
+
+.light-green {
+    display: inline-block;
+    background: #8DC63F;
+    width:74%;
+}
+
+.orange {
+    display: inline-block;
+    width: 24%; 
+    background: #E76E34;
+
+}
