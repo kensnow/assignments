@@ -1,0 +1,95 @@
+body:nth-child(0) {
+    /* outline: 2px solid black;
+    position: relative; */
+}
+div {
+    height: 300px;
+    width: 500px;
+    
+}
+
+.blue {
+    background-color: blue;
+}
+.red {
+    background-color: red;
+}
+.black {
+    background-color: black;
+}
+.yellow {
+    background-color: yellow;
+}
+.white {
+    background-color: white;
+}
+.green {
+    background-color: green;
+}
+#france {
+    outline: 2px solid black;
+    position: relative;
+}
+
+#france .blue {
+    width: 33%;
+    position: absolute;
+}
+
+#france .white {
+    position: absolute;
+    width: 33%;
+    left: 33%;
+}
+#france .red {
+    width:33%;
+    right:0;
+    position: absolute;
+}
+
+#germany {
+    position: relative;
+    outline: 2px solid black;
+}
+
+#germany .black{
+    height: 33%;
+    position: absolute;
+}
+
+#germany .red{
+    height: 33%;
+    position: absolute;
+    top: 33%;
+}
+
+#madagascar {
+    position: relative;
+    outline: 2px solid black;
+}
+
+#madagascar .white{
+    position: absolute;
+    width: 33%;
+}
+
+#madagascar .red{
+    position: absolute;
+    left: 33%;
+    height: 50%;
+    width: 67%;
+}
+
+#madagascar .green{
+    position: absolute;
+    left: 33%;
+    height: 50%;
+    top: 50%;
+    width: 67%;
+}
+
+#switzerland {
+    position: relative;
+    outline: 2px solid black;
+}
+
