@@ -41,24 +41,69 @@ var mountainQuestProfile = {
     profileName: "SnowHiker",
     name: "Ken Snow",
     level: 2,
-    experience: 140,
+    experience: function (){
+        var expSum = 0;
+        for(var i = 0; i < this.completedQuests.length; i++){
+            expSum += this.completedQuests[i].expVal;
+            console.log("i is " + i);
+            console.log("this is " + this.completedQuests[i].expVal);
+            console.log("expSum is " + expSum);
+        }
+        return expSum;
+    },
     title: "apprentice",
     completedQuests: [{
-        grandeurPeak: {
-            elevation:  8299,
-            expVal: 50,
-            via: {
-                westFace: {
-                    distance: 
+        name: "Grandeur Peak",
+        location: "Salt Lake City",
+        elevation:  8299,
+        expVal: 50,
+        trail: {
+            westFace: {
+                name: "West Face of Grandeur Peak",
+                distance: 2.2,
+                rt: 4.4,
+                vert:3302,
+            },
+            churchFork:{
+                name: "Grandeur peak via Curch Fork",
+                distance:  2.7,
+                rt: 5.4,
+                vert:2340,
+            } 
+        }
+    },
+    {       name: "Salt Lake Overlook", 
+            location: "Millcreek Canyon",
+            elevation: 7003,
+            expVal:25,
+            trail: {
+                desolation:{
+                    distance: 2.2,
+                    vert:1232
                 }
             }
-            
-        },
-
-    }]
 
 
+        }
 
+    ],
 }
 
-console.log("test " + mountainQuestProfile.completedQuests[0].grandeurePeakWestFace.elevation)
+console.log("test " + mountainQuestProfile.completedQuests[0].trail.westFace.distance)
+
+//add 2 properties, lets add a quest completed and some properties
+
+mountainQuestProfile.completedQuests.push({
+        name: "Gobbler's Knob",
+        location:"Millcreek Canyon",
+        elevation: 10246,
+        expVal:60,
+    
+},{     name: "Mount Raymond", 
+        location:"Millcreek Canyon",
+        elevation:10241,
+        expVal:60,
+    
+});
+
+console.log(mountainQuestProfile.experience());

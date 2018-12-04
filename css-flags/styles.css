@@ -1,13 +1,19 @@
-body:nth-child(0) {
-    /* outline: 2px solid black;
-    position: relative; */
-}
+
 div {
     height: 300px;
     width: 500px;
     
 }
 
+.flag {
+    outline: 2px solid black;
+    position: relative;
+}
+
+.flag div{
+    position: absolute;
+    width: 100%;
+}
 .blue {
     background-color: blue;
 }
@@ -26,62 +32,53 @@ div {
 .green {
     background-color: green;
 }
-#france {
-    outline: 2px solid black;
-    position: relative;
+.light-blue {
+    background-color: #006aa7;
+}
+.orange {
+    background-color: darkorange;
+}
+.circle {
+    border-radius: 50%;
 }
 
 #france .blue {
     width: 33%;
-    position: absolute;
 }
 
 #france .white {
-    position: absolute;
     width: 33%;
     left: 33%;
 }
 #france .red {
     width:33%;
     right:0;
-    position: absolute;
-}
-
-#germany {
-    position: relative;
-    outline: 2px solid black;
 }
 
 #germany .black{
     height: 33%;
-    position: absolute;
 }
 
+#germany .yellow{
+    height: 34%;
+    top:66%
+}
 #germany .red{
     height: 33%;
-    position: absolute;
     top: 33%;
 }
 
-#madagascar {
-    position: relative;
-    outline: 2px solid black;
-}
-
 #madagascar .white{
-    position: absolute;
     width: 33%;
 }
 
 #madagascar .red{
-    position: absolute;
     left: 33%;
     height: 50%;
     width: 67%;
 }
 
 #madagascar .green{
-    position: absolute;
     left: 33%;
     height: 50%;
     top: 50%;
@@ -89,7 +86,149 @@ div {
 }
 
 #switzerland {
-    position: relative;
-    outline: 2px solid black;
+    width: 300px;
+}
+#switzerland .xcross{
+    width: 150px;
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
 }
 
+#switzerland .ycross{
+    width: 50px;
+    height: 150px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#sweden .xcross{
+    height: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+#sweden .ycross{
+    width: 60px;
+    left: 30%;
+}
+
+#gambia .red{
+    height:33%;
+}
+#gambia .blue{
+    height:20%;
+    top:50%;
+    transform: translateY(-50%);
+}
+#gambia .green{
+    height:33%;
+    bottom:0;
+
+}
+
+#tonga .xcross{
+    width:75px;
+    height:25px;
+    top:20%;
+    left: 20%;
+    transform: translate(-50%,-50%)
+}
+
+#tonga .ycross{
+    width:25px;
+    height:75px;
+    top:20%;
+    left: 20%;
+    transform: translate(-50%,-50%)
+}
+
+#tonga .white{
+    width: 40%;
+    height: 40%;
+
+}
+
+#japan .circle{
+    width:150px;
+    height:150px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+#greece .light-blue{
+    height: 11%;
+}
+#greece .stripe-2 {
+    top: 22%;
+}
+#greece .stripe-3 {
+    top: 44%;
+}
+#greece .stripe-4 {
+    top: 66%;
+}
+#greece .stripe-5 {
+    top: 89%;
+}
+#greece .window{
+    width:165px;
+    height:165px;
+}
+#greece .xcross{
+    width:100%;
+    height:30px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%)
+}
+#greece .ycross{
+    width:30px;
+    height:100%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%)
+}
+
+#niger .stripe-1{
+    height:33%;
+    
+}
+#niger .circle{
+    height:75px;
+    width:75px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+#niger .green{
+    height:33%;
+    top:67%;
+}
+
+
+#maldives .green{
+    width:66%;
+    height:66%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+
+}
+
+#maldives .circle{
+    width:100px;
+    height:100px;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
+
+#maldives #shadow {
+    left: 55%;
+    /* transform: translate(0%,0%); */
+}
