@@ -44,7 +44,7 @@ function removeDuplicates(string){
 }
 
 function removeRandomLetter(string){
-    while skipped != /^[A-Za-z]+$/{
+
         skipped = Math.floor(Math.random() * string.length);
     {}
     newArr = []
