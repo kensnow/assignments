@@ -40,37 +40,22 @@ Write some custom JavaScript to automatically change the words of the conversati
 Write some JavaScript that will wait until the user clicks the "clear" button, and then clears out all conversation.
 */
 
-badWords = ["serious","don't","police","simple"];
-goodWords = ["fun","absolutely","fun police","badass"];
 
-baddies = {
-    serious: ""
+var messages = document.querySelectorAll(".message")
+var replacementMessages = ["You have lovely nose hair today","I trimmed this morning, it was awesome!", "I bet it was, I cant wait to trim mine!","HORRAY!"]
 
-
-
-}
-
-var messages = document.getElementsByClassName("message");
 for (i = 0; i < messages.length; i++){
-    messageText = messages[i].innerText;
-    var words = messageText.split(" ");
-    
-    for(n = 0; n < words.length; n++){
-        if (words[n]){
-            words[n] = goodWords[n];
-        }
-
-    }
-    
-    console.log(words)
-
-    // console.log(newPhrase)
-
-    
+    console.log(this.messages[i])
+    this.messages[i].innerText = replacementMessages[i]; 
 }
 
+var clearButton = document.querySelector("#clear-button")
+clearButton.addEventListener("click",function(e){
 
-
+    for (i = 0; i < messages.length; i++){
+        messages[i].remove();
+    }
+})
 /*
 Silver
 Themes!
@@ -78,7 +63,34 @@ Themes!
 Use the drop down to write some JavaScript that will notice when the drop down has changed and then changes the background colors of the messages accordingly.
 
 Feel free to edit the HTML <select> tag to make it more usable or elaborate. Mo themes, mo fun.
+*/
 
+var blueBrownTheme = true;
+var redBlackTheme = false;
+var dropDown = document.querySelector("#theme-drop-down")
+
+dropDown.addEventListener("change", function(e){
+    var main = document.querySelector("#main")
+    var messages = document.querySelector(".messages")
+
+    if (blueBrownTheme){
+        main.style.backgroundColor = "black"
+        messages.style.backgroundColor = "red"
+        redBlackTheme = true
+        blueBrownTheme = false
+    } else {
+        main.style.backgroundColor = "blue"
+        messages.style.backgroundColor = "brown"
+        redBlackTheme = false
+        blueBrownTheme = true
+    }
+    
+    
+    console.log(this.nextElementSibling)
+})
+
+
+/*
 Gold
 Be able to add more messages using the form at the bottom.
 EXTRA CREDIT
