@@ -45,9 +45,6 @@ var mountainQuestProfile = {
         var expSum = 0;
         for(var i = 0; i < this.completedQuests.length; i++){
             expSum += this.completedQuests[i].expVal;
-            console.log("i is " + i);
-            console.log("this is " + this.completedQuests[i].expVal);
-            console.log("expSum is " + expSum);
         }
         return expSum;
     },
