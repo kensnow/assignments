@@ -1,0 +1,78 @@
+/*
+Here are the colors:
+
+#F5C6D6
+#EE2E84
+#85CFD8
+#8DC63F
+#E76E34
+
+*/
+
+# {
+    box-sizing: border-box;
+    font-size: 0px;
+    
+}
+
+
+.color-box{
+    height: 60px;
+    border:2px solid white;
+
+}
+.light-pink{
+    background: #F5C6D6;
+
+}
+
+.dark-pink{
+    background: #EE2E84;
+}
+
+.light-blue {
+
+    background: #85CFD8;
+}
+
+.green {
+    background: #8DC63F;
+}
+
+.orange {
+    background: #E76E34
+}
+#colors_box {
+    /* display: flex; */
+
+}
+
+@media(min-width: 768px){
+    body{
+
+        margin:auto;
+        max-width: 600px;
+    }
+    .color-box{
+        height:75px;
+    }
+    .light-pink{
+    }
+    .dark-pink{
+        display: inline-block;
+        width: 23.83%;
+    }
+    .light-blue{
+        display: inline-block;
+        width: 49%;
+    }
+    .green{
+        display: inline-block;
+        width: 74%;
+    }
+    .orange{
+        display: inline-block;
+        width: 24%;
+    }
+
+}

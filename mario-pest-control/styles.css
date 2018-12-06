@@ -1,9 +1,25 @@
+# {
+    box-sizing: border-box;
+}
+
 body {
-    background-color: #0000ff;
+    margin: 0;
+    padding: 0;
 
 }
-footer {
-    background-image: "brick.png";
+
+header {
+    margin:0;
+    padding: 0;
+}
+body {
+    background-image: url("brick.png");
     background-repeat: repeat;
+    background-size: 100px 100px;
     
+}
+
+#sky {
+    background-color: #0000ff;
+
 }
