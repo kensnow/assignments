@@ -4,32 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
     <title>Travel Form</title>
 </head>
 <body>
-    <h1> Green Airways</h1>
-    <h2> Get high with green air!</h2>
-    <form>
+    <div class="title-box">
+        <h1> Green Airways</h1>
+        <h2> Get high with green air!</h2>
+    </div>
+    <form id="input-form">
         <h3>Personal Information</h3>
-        <div id="name-age">
-        <label for="fName">Fist:<input id="fName" type="text" name="fname"></label>
-        <label for="lName">Last:<input id="lName" type="text" name="lname"></label>
-        <label for="age">Age:<input id="age" type="number"></label>
-        </div>
-        <label for="gender">Male<input id="male" name="gender" type="radio"></label>
-        <label for="gender">Female<input id="male" name="gender" type="radio"></label>
-        <label for="gender">Do not disclose<input id="male" name="gender" type="radio"></label>
-        <h3>Flight Information</h3>
-        <div id="destination-box">
-            <label for="destination">Destination: <select name="destination">
+
+            <label for="fName">First:<input id="fName" type="text" name="fname"></label>
+            <label for="lName">Last:<input id="lName" type="text" name="lname"></label>
+            <label for="age">Age:<input id="age" name="age" type="number"></label>
+
+        <label for="gender">Male<input id="male" name="gender" type="radio" value="male"></label>
+        <label for="gender">Female<input id="male" name="gender" type="radio" value="female"></label>
+        <label for="gender">Do not disclose<input id="na" name="gender" type="radio" value="na"></label>
+            <label for="destination">Destination: <select name="destination"></label>
                 <option class="drop-down" value="Denver" name="denver">Denver, CO</option>
                 <option class="drop-down" value="Seattle" name="seattle">Seattle, WA</option>
                 <option class="drop-down" value="Vancouver" name="vancouver">Vancouver, BC</option>
-            </select></label>
-        </div>
-        <div id="diet">
-            <label for="veg"></label>
-        </div>
+            </select>
+  
+            <label for="vegetarian">Vegetarian<input name="vegetarian" id="vegetarian" type="checkbox" value="Vegetarian"></label>
+            <label for="kosher">Kosher<input name="kosher" id="kosher" type="checkbox" value="Kosher"></label>
+            <label for="vegan">Vegan<input name="vegan" id="vegan" type="checkbox" value="Vegan"></label>
+            <label for="pastafarian">Pastafarian<input name="pastafarian" id="pastafarian" type="checkbox" value="Pastafarian"></label>
+            <br><br>
+        <button id="submit-button">Submit</button>
     </form>
+    <script rel="javascript" src="scripts.js"></script>
 </body>
 </html>
