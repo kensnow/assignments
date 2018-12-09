@@ -6,47 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="styles.css">
     <title>Mario Pest Control</title>
+    <link href="https://fonts.googleapis.com/css?family=Skranji" rel="stylesheet">
 </head>
 <body>
     <div id="sky">
-        <header>
+        <div id="container">
             <h1>Mario Pest Control</h1>
-            <p>This site is used to calculate Mario's bill after he has "cleaned up" the baddies</p>
-        </header>
-        <form title="entry-form" id="entry-form">
-            <div class="baddie" id="goomba">
-                
-                <h3>Goomba</h3>
-                <h4>Value: 5 coins</h4>
-                <input id="goomba-field" type="number">
-                <button class="button" id="goomba-button">Submit</button>
-            </div>
-            <div class="baddie" id="bobomb">
-                
-                <h3>Bob-Omb</h3>
-                <h4>Value: 7 coins</h4>
-                <input id="bobomb-field" type="number">
-                <button class="button" id="bobomb-button">Submit</button>
-            </div>
-            <div class="baddie" id="cheepCheep">
-                
-                <h3>Cheep Cheep</h3>
-                <h4>Value: 11 coins</h4>
-                <input id="cheepCheep-field" type="number">
-                <button class="button" id="cheepCheep-button">Submit</button>
-            </div>
-        </section>
+            <h3>"It's a fee!" <br>- Mario!</h3>
+            <form id="summary" name="summary">
+                <h4>Pest Disposal Summary</h4>
+                <div class="pest-box name="goomba-box" id="goomba-box">
+                    <button class="pest-button" id="goomba-button"></button>
+                    <h4>Goomba: 5</h4> <input input="number" value="0" class="input" id="goomba-input" name="goomba-input"> 
+                </div>
+                <div class="pest-box" name="bobomb-box" id="bobomb-box">
+                    <button  class="pest-button" id="bobomb-button"></button>
+                    <h4>Bob-omb: 7</h4><input type="number" value="0" class="input" id="bobomb-input" name="bobomb-input"> 
+                </div>
+                <div class="pest-box" name="cheep-cheep-box" id="cheep-cheep">
+                    <button class="pest-button" id="cheep-cheep-button"></button>
+                    <h4>Cheep Cheep: 11</h4><input type="number" value="0" class="input" id="cheep-cheep-input" name="cheep-cheep-input">
+                </div>
+                <div class="pest-box" name="total-box" id="total">
+                    <h4 name="total" id="total-display">Total: </h4>
+                    <button id="submit-button">Submit</button>
+                </div>
+            
+            <footer>
+                    <address>
+                        Mario Pest Control, Inc. <br>
+                        <a href="www.mario-pest-control.com" target="_blank">Mario Pest Control</a><br>
+                        email: <a href="mailto:mario@mario-pest-control.com">Mario</a><br>
+                        120 Luigi Ln,<br>
+                        Another Castle, Mushroom Kingdom
+                    </address>
+                </footer>
+            </form>
+        </div> <!-- Container -->
+    </div>    
+    <div id="brick-div">
     </div>
-    <div title="brick-div" id="brick-div">
-        <footer>
-            <div id="footer-text">
-                <h4>Mario Pest Control, Inc</h4>
-                <a href="www.mario-pest-control.com" target="_blank">
-                <p><a href="mailto:mario@mario-pest-control.com" target="_blank">Mario @ Mario-Pest-Control</a></p>
-                <p>Mario Pest Control <br> 12 Koopa St. <br> Bronx, Mushroom Kingdom </p>
-            </div>
-        </footer>
-    </div>
-    <script rel="javascript" href="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

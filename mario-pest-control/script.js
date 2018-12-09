@@ -54,3 +54,25 @@ Build Mario Pest Control website to be responsive, meaning it looks great when s
 var goomba = 5;
 var bobomb = 7;
 var cheepCheep = 11;
+
+var total = document.querySelector("total-display")
+
+var inputArr = document.querySelectorAll(".input")
+//establish handlers for buttons, total, and input fields
+
+for(i=0; i< inputArr.length; i++){
+    inputArr[i].addEventListener("input",function(e){
+        updateTotal(e);
+        
+    })
+}
+
+function getTotalEntered() {
+
+}
+function buttonFunctionality() {
+
+}
+function updateTotal(e){
+    
+}
