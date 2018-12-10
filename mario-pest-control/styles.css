@@ -46,13 +46,19 @@ input{
     height:50px;
     width: 50px;
     margin-top: 12px;
-    padding:12px;
-    border: 4px white solid;
+    padding:8px;
+    border: 2px white solid;
     position: relative;
     border-radius: 4px;
     font-family: 'Skranji', cursive;
     font-size: 1.5em;
     
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 .pest-box{
@@ -64,7 +70,7 @@ input{
 
 }
 
-.pest-button{
+.pestButton{
     width:75px;
     height:75px;
     border: 4px #6A0400 solid;
@@ -79,9 +85,9 @@ input{
     
 }
 
-#submit-button{
+.button{
     font-family: 'Skranji', cursive;
-    font-size: 1.2em;
+    font-size: 1em;
     padding: 4px;
     color:white;
     background-color: rgba(255,73,73,.9);
@@ -92,6 +98,10 @@ input{
 
     border-top: 4px solid;
     border-bottom: 4px solid;
+}
+#total-display{
+
+    flex:.9;
 }
 #sky {
     height: 80vh;
@@ -141,4 +151,35 @@ input{
     height:20vh;
     background-image: url("brick.png");
     background-size: 125px;
+}
+
+@media(min-width: 600px){
+        
+    h1 {
+        font-size: 2.5em;
+    
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h4 {
+        font-size: 2em;
+    }
+    h1, h2, h3, h4, h5{
+
+        line-height: 30px;
+    }
+
+        form{
+            width:400px
+            
+        }
+
+    .pestButton{
+        width:85px;
+        height:85px;
+        background-size: 85px;
+    }
 }

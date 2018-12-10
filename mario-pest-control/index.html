@@ -14,22 +14,27 @@
             <h1>Mario Pest Control</h1>
             <h3>"It's a fee!" <br>- Mario!</h3>
             <form id="summary" name="summary">
-                <h4>Pest Disposal Summary</h4>
-                <div class="pest-box name="goomba-box" id="goomba-box">
-                    <button class="pest-button" id="goomba-button"></button>
-                    <h4>Goomba: 5</h4> <input input="number" value="0" class="input" id="goomba-input" name="goomba-input"> 
+                <h4 id="summary-title">Pest Disposal Summary</h4>
+        
+                <div class="pest-box" name="goomba" id="goomba-box">
+                    <button class="pestButton" id="goomba-button" name="goomba"></button>
+                    <h4>Goomba: 5</h4> 
+                    <input input="number" value="0" class="input" id="goomba" name="input"> 
                 </div>
-                <div class="pest-box" name="bobomb-box" id="bobomb-box">
-                    <button  class="pest-button" id="bobomb-button"></button>
-                    <h4>Bob-omb: 7</h4><input type="number" value="0" class="input" id="bobomb-input" name="bobomb-input"> 
+                <div class="pest-box" name="bobomb" id="bobomb-box">
+                    <button  class="pestButton" id="bobomb-button" name="bobomb"></button>
+                    <h4>Bob-omb: 7</h4>
+                    <input type="number" value="0" class="input" id="bobomb" name="input"> 
                 </div>
-                <div class="pest-box" name="cheep-cheep-box" id="cheep-cheep">
-                    <button class="pest-button" id="cheep-cheep-button"></button>
-                    <h4>Cheep Cheep: 11</h4><input type="number" value="0" class="input" id="cheep-cheep-input" name="cheep-cheep-input">
+                <div class="pest-box" name="cheepCheep" id="cheepCheepBox">
+                    <button class="pestButton" id="cheep-cheep-button" name="cheepCheep"></button>
+                    <h4>Cheep Cheep: 11</h4>
+                    <input type="number" value="0" class="input" id="cheepCheep" name="input">
                 </div>
-                <div class="pest-box" name="total-box" id="total">
-                    <h4 name="total" id="total-display">Total: </h4>
-                    <button id="submit-button">Submit</button>
+                <div class="pest-box" name="totalBox" id="total">
+                    <h4 name="total" id="total-display">Total: 0</h4>
+                    <button id="update-button" class="button" name="update">Update Total</button>
+                    <button id="submit-button" class="button" name="submit">Submit</button>
                 </div>
             
             <footer>
