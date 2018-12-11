@@ -463,7 +463,7 @@ function enemyAttack(prone, enemy){
         }
         armorCheck = Math.round(getRandomNum(100)/100 * player.armor)
         damage = attackVal - armorCheck
-        console.log(enemy.type + " attackVal: " + attackVal + " armorCheck: " + armorCheck + " damage: " + damage + "\n")
+        console.log(enemy.type + " attackVal: " + attackVal + " armorCheck: " + armorCheck + " damage: " + damage)
         if (damage < 0){
                 damage = 0
             }
