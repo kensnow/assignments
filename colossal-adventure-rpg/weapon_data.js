@@ -38,5 +38,30 @@ module.exports = [
     type: "weapon",
     power:6,
     rarity:"uncommon"   
+    },{
+    name:"platinum short sword",
+    type: "weapon",
+    power: 7,
+    rarity:"uncommon"
+    },{
+    name:"platinum long sword",
+    type:"weapon",
+    power: 7,
+    rarity:"uncommon"
+    },{
+    name:"gold whacking staff",
+    type: "weapon",
+    power: 8,
+    rarity: "uncommon"
+    },{
+    name:"Blade of the Nine",
+    type:"weapon",
+    power:12,
+    rarity: "rare"
+    },{
+    name:"Wicked Whacker",
+    type:"weapon",
+    power:13,
+    rarity:"rare"
     }
 ]
