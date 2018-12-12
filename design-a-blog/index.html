@@ -1,0 +1,72 @@
+<!--
+    Design a blog
+22 APRIL 2016
+Create a website that contains the following:
+
+A fixed horizontal navbar (meaning it is always on the top of the page, even if you scroll down)
+A blog-style feed, where each blog post (which you'll just hard-code in for now) is in the center of the page, and as your scroll down the page it shows older blog posts.
+Each blog post should have a title of some kind
+Each blog post should have the date it was "published"
+Each blog post should have a photo of some kind near the top of the text, and the text should wrap around the photo and have a reasonable margin between the photo and the wrapped text.
+The blog posts' content can just be hard-coded, meaning it'll all just be on a single page and you can just put filler text (lorem ipsum) there if you want.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Design A Blog</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="home" target="_blank">Home</a></li>
+            <li><a href="archives" target="_blank"></a>Archives</li>
+            <li><a href="top-posts" target="_blank"></a>Top Posts</li>
+            <li><a href="about" target="_blank"></a>About</li>
+        </ul>
+    </nav>
+    <div title="main-div" id="main-div">
+        <h1>Wasatch Powderhounds</h1>
+        <section title="Blog-feed" id="blog-fee">
+            <div id="feature-post">
+                <div id="feature-img"><p class="post-date" id="feature-date">Post date: 12/11/2018</p></div>
+
+            <div title="latest-post">
+                <h2>Time to shred the gnar!</h2>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu velit libero. Aenean placerat nisi ipsum, nec suscipit nulla molestie quis. Mauris pharetra urna et nulla aliquam consequat. Fusce efficitur congue augue sed volutpat. Proin consectetur quam in massa mattis dictum. In facilisis nibh vitae pharetra commodo. Integer ultricies fringilla ante id scelerisque. Vivamus consequat augue vitae fermentum faucibus.<br>     Proin nec enim ipsum. Curabitur ut justo eu lectus fringilla suscipit. Integer molestie orci at nulla posuere semper. Donec nec purus vitae ipsum suscipit mattis. Fusce interdum, ligula a efficitur feugiat, mi quam viverra lorem, sed congue eros justo et nisi. Ut condimentum efficitur odio at fringilla. Aliquam rhoncus vehicula neque at ultrices. Integer nec pharetra felis. Donec vehicula ullamcorper dolor eget vulputate. Donec in dui lectus.<br>
+                Aliquam tincidunt mauris cursus est molestie venenatis. Suspendisse vitae odio facilisis justo tempor hendrerit. Aliquam a consectetur mauris, non feugiat massa. Aliquam sed odio blandit, faucibus libero sit amet, ultrices magna. Nam a ultricies dui, quis maximus sapien. Nullam porttitor efficitur tellus ac hendrerit. Etiam dapibus vehicula dapibus. Nam fringilla neque pellentesque, tempor libero sed, tempor elit.</p>
+            </div>
+        </div>
+            <div title="older-posts" id="previous-posts-group">
+                <div class="previous post">
+                    <div class="post-img older" id="post1"><p class="post-date">Post date: 11/30/2018</p></div>
+                    <h3>Post 2</h3>
+                    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu velit libero. Aenean placerat nisi ipsum, nec suscipit nulla molestie quis. Mauris pharetra urna et nulla aliquam consequat. Fusce efficitur congue augue sed volutpat. Proin consectetur quam in massa mattis dictum. In facilisis nibh vitae pharetra commodo. Integer ultricies fringilla ante id scelerisque. Vivamus consequat augue vitae fermentum faucibus.<br>     Proin nec enim ipsum. Curabitur ut justo eu lectus fringilla suscipit. Integer molestie orci at nulla posuere semper. Donec nec purus vitae ipsum suscipit mattis. Fusce interdum, ligula a efficitur feugiat, mi quam viverra lorem, sed congue eros justo et nisi. Ut condimentum efficitur odio at fringilla. Aliquam rhoncus vehicula neque at ultrices. Integer nec pharetra felis. Donec vehicula ullamcorper dolor eget vulputate. Donec in dui lectus.<br>
+                        Aliquam tincidunt mauris cursus est molestie venenatis. Suspendisse vitae odio facilisis justo tempor hendrerit. Aliquam a consectetur mauris, non feugiat massa. Aliquam sed odio blandit, faucibus libero sit amet, ultrices magna. Nam a ultricies dui, quis maximus sapien. Nullam porttitor efficitur tellus ac hendrerit. Etiam dapibus vehicula dapibus. Nam fringilla neque pellentesque, tempor libero sed, tempor elit.</p>
+                </div>
+                <div class="previous post">
+                    <div class="post-img older" id="post-2"><p class="post-date">Post Date: 11/18/2018</p></div>
+                    <h3>Post 3</h3>
+                    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu velit libero. Aenean placerat nisi ipsum, nec suscipit nulla molestie quis. Mauris pharetra urna et nulla aliquam consequat. Fusce efficitur congue augue sed volutpat. Proin consectetur quam in massa mattis dictum. In facilisis nibh vitae pharetra commodo. Integer ultricies fringilla ante id scelerisque. Vivamus consequat augue vitae fermentum faucibus.<br>     Proin nec enim ipsum. Curabitur ut justo eu lectus fringilla suscipit. Integer molestie orci at nulla posuere semper. Donec nec purus vitae ipsum suscipit mattis. Fusce interdum, ligula a efficitur feugiat, mi quam viverra lorem, sed congue eros justo et nisi. Ut condimentum efficitur odio at fringilla. Aliquam rhoncus vehicula neque at ultrices. Integer nec pharetra felis. Donec vehicula ullamcorper dolor eget vulputate. Donec in dui lectus.<br>
+                        Aliquam tincidunt mauris cursus est molestie venenatis. Suspendisse vitae odio facilisis justo tempor hendrerit. Aliquam a consectetur mauris, non feugiat massa. Aliquam sed odio blandit, faucibus libero sit amet, ultrices magna. Nam a ultricies dui, quis maximus sapien. Nullam porttitor efficitur tellus ac hendrerit. Etiam dapibus vehicula dapibus. Nam fringilla neque pellentesque, tempor libero sed, tempor elit.</p>
+                </div>
+                <div>
+                    <div class="post-img older" id="post-3"><p class="post-date">Post Date: 11/12/2018</p></div>
+                    <h3>Post 4</h3>
+                    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean eu velit libero. Aenean placerat nisi ipsum, nec suscipit nulla molestie quis. Mauris pharetra urna et nulla aliquam consequat. Fusce efficitur congue augue sed volutpat. Proin consectetur quam in massa mattis dictum. In facilisis nibh vitae pharetra commodo. Integer ultricies fringilla ante id scelerisque. Vivamus consequat augue vitae fermentum faucibus.<br>     Proin nec enim ipsum. Curabitur ut justo eu lectus fringilla suscipit. Integer molestie orci at nulla posuere semper. Donec nec purus vitae ipsum suscipit mattis. Fusce interdum, ligula a efficitur feugiat, mi quam viverra lorem, sed congue eros justo et nisi. Ut condimentum efficitur odio at fringilla. Aliquam rhoncus vehicula neque at ultrices. Integer nec pharetra felis. Donec vehicula ullamcorper dolor eget vulputate. Donec in dui lectus.<br>
+                        Aliquam tincidunt mauris cursus est molestie venenatis. Suspendisse vitae odio facilisis justo tempor hendrerit. Aliquam a consectetur mauris, non feugiat massa. Aliquam sed odio blandit, faucibus libero sit amet, ultrices magna. Nam a ultricies dui, quis maximus sapien. Nullam porttitor efficitur tellus ac hendrerit. Etiam dapibus vehicula dapibus. Nam fringilla neque pellentesque, tempor libero sed, tempor elit.</p>
+                </div>
+            </div>
+
+        </section>
+
+</body>
+</html>

@@ -127,9 +127,7 @@ makeStrings([
 //6) Make an array of the names in h1s, and the ages in h2s
 
 function readyToPutInTheDOM(arr){
-    domReady = arr.map(fuction(profile){
-        if 
-    })
+
 }
 readyToPutInTheDOM([
     {
