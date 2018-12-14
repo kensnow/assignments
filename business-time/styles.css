@@ -6,15 +6,17 @@ nav {
     display:flex;
     justify-content: center;
     position: fixed;
+    width:100%;
     top:0;
     left:0;
 
 }
 
 body{
-    margin:5px;
+    margin:auto;
     text-align: center;
     max-width: 400px;
+    min-width: 300px;
 }
 li{
     display: inherit;
@@ -96,18 +98,19 @@ a:hover{
 #img-1{
     background-image: url(./shoe1.jpg);
     background-size: 80%;
+    height:215px;
 }
 
 #img-2{
     background-image: url(./shoe2.jpeg);
-    height: 215wpx;
+    height: 215px;
 }
 
-#img-3{
+/* #img-3{
     background-image: url(./shoe3.jpeg);
     background-size: 60%;
 
-}
+} */
 #contact{
     background-color: #5DD39E;
     color:white;

@@ -39,8 +39,8 @@ var weaponArray = require("./weapon_data")
 //----------------- set up player and enemy constructors -------------
 function Player(name){
     this.name = name;
-    this.hp = 20;
-    this.maxhp = 20;
+    this.hp = 25;
+    this.maxhp = 25;
     // this.mp = 5;
     // this.maxmp = 5;
     this.level = 1;
@@ -261,7 +261,8 @@ function getArmor(){
     return gear
 }
 // --------------------ENEMIES---------------------------------------//
-enemies = ["goblin", "orc", "gnoll", "bandit", "kolob", "zombie"]
+
+enemies = ["goblin", "orc", "gnoll", "bandit", "kolob", "zombie","ogre","skeleton","pirate"]
 
 function spawnEnemy(){
     modifier = getModifier(getRandomNum(100))
@@ -364,7 +365,7 @@ function killedEnemy(enemy){
 
 function equipLoot(items){
     for(i = 0; i < items.length; i++){
-        console.log("You have looted " + items[i].name)
+        items[i].type == "armor" ? console.log("You have looted " + items[i].name + " Armor: " + items[i].armor) : console.log("You have looted " + items[i].name + " Power:" + items[i].power)
         
         answer = rs.keyInYN("Would you like to equip " + items[i].name + "?")
         if (answer){
@@ -410,8 +411,8 @@ function playerAttack(enemy, proneEnemy){
         if (damage < 0){
             damage = 0
         }
-        console.log(player.name + " attackVal: " + attackVal + " armorCheck: " + armorCheck + " damage: " + damage)
-        console.log(player.name + " attacks for " + damage + "\n")
+        // console.log(player.name + " attackVal: " + attackVal + " armorCheck: " + armorCheck + " damage: " + damage)
+        console.log(player.name + " attacks for " + damage + "\t(attackVal: " + attackVal + " armorCheck: " + armorCheck + " damage: " + damage +")\n")
         enemy.hp -= damage;
         if (enemy.hp <= 0){
             enemy.isAlive = false;
@@ -463,11 +464,11 @@ function enemyAttack(prone, enemy){
         }
         armorCheck = Math.round(getRandomNum(100)/100 * player.armor)
         damage = attackVal - armorCheck
-        console.log(enemy.type + " attackVal: " + attackVal + " armorCheck: " + armorCheck + " damage: " + damage)
+        // console.log(enemy.type + " attackVal: " + attackVal + " armorCheck: " + armorCheck + " damage: " + damage)
         if (damage < 0){
                 damage = 0
             }
-        console.log (enemy.modifier + " " + enemy.type + " attacks for " + damage + "\n")
+        console.log (enemy.modifier + " " + enemy.type + " attacks for " + damage + "\t(attackVal: " + attackVal + " armorCheck: " + armorCheck + " damage: " + damage + ")\n")
         player.hp -= damage
         if (player.hp <= 0){
             player.isAlive = false;
@@ -543,12 +544,96 @@ function combatEvent(enemy){
 
 //------------------Main Game & Loop -------------------------------//
 
+var instances = ["large cave", "strange door in the hillside", "ominous building", "decayed ruin" ]
+
+
+function generateInstance(instanceType){
+    numberOfEnemies = getRandomNum(12)
+    if (numberOfEnemies < 6){
+        numberOfEnemies = 6;
+    }
+    var enemyType = enemies[getRandomNum(enemies.length)]
+    modifierInterval = numberOfEnemies/100;
+    console.log("modifier interval is " modifierInterval)
+    for(var i = 0; i <= numberOfEnemies; i++){
+        spawnInstanceEnemy(modifierInterval, enemyType)
+        modifierInterval += modifierInterval
+
+    }
+    console.log("You have reached the end of the " + instanceType)
+    console.log("You have discovered a treasure chest!!")
+    var items = treasureGenerator()
+    equipLoot(items)
+}
+
+function spawnInstanceEnemy(modifier, type){
+    modifier = getModifier(modifier)
+    type = type
+    level = generateLevel(modifier)
+    // hp = 5 * level;
+    hp = generateHP(level,modifier)
+    expGiven = 5 * level;
+    attack = 3 * level; //can make this more dynamic later
+    armor = 1 * level;
+    var enemy = new Baddie(type, modifier, hp, level, attack, armor, expGiven)
+    
+    //get modifier
+    //get type
+    //populate hp, level, exp given, equipped
+    combatEvent(enemy)
+}
+
+function treasureGenerator(){
+    loot = []
+    itemRoll = getRandomNum(100)
+    //adjustment for harder guys
+    if (itemRoll < 10){
+        console.log("The treasure chest is empty...")
+    } else if (itemRoll >= 20 && itemRoll <= 35){
+        if (itemRoll % 4 == 0){
+            //generate weapon
+            weapon = getWeapon()
+            loot.push(weapon)
+        } else {
+            //generate armor
+            armor = getArmor()
+            loot.push(armor)
+        }
+        return loot
+        //generate 1 item
+    } else {
+        //generate 2 -3 items
+
+        for (i = 2; i < getRandomNum(6);i++){
+            if (getRandomNum(13) % 4 == 0){
+                //generate weapon
+                weapon = getWeapon()
+                loot.push(weapon)
+            } else {
+                //generate armor
+                armor = getArmor()
+                loot.push(armor)
+            }
+        }
+        return loot
+    }
+    
+}
 function generateEvent(){
     randomNumber = getRandomNum(100)
     
     // console.log(randomNumber)
     if (randomNumber <= 33){
         spawnEnemy()
+    }
+    if (randomNumber > 48 && randomNumber < 52 ){
+        instanceType = instances[getRandomNum(instances.length)]
+        var response = rs.keyInYN("You encounter a " + instanceType + " Do you investigate further?")
+        if (response){
+            generateInstance(instanceType)
+        } else {
+            console.log("You back away slowly...")
+        }
     }
     else if (randomNumber > 85 && randomNumber <= 100) {
         incrementHealth()
@@ -576,6 +661,7 @@ begin = rs.keyIn("Press \'w\' to continue\n",{limit: "w"})
 console.log("Let's put on some clothes first...")
 equipGear(gearArray[0])
 equipGear(gearArray[1])
+equipGear(gearArray[2])
 equipWeapon(weaponArray[0])
 //create game loop/logic
 //while the player is alive, run game loop

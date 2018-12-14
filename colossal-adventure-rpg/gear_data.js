@@ -98,9 +98,9 @@ module.exports = [
     },{
     name:"fancy fedora",
     type:"armor",
-    armor: 2,
+    armor: 3,
     slot:"head",
-    rarity:"common"
+    rarity:"uncommon"
     },{
     name:"steel chestplate",
     type:"armor",
