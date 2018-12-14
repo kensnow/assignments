@@ -1,104 +1,128 @@
-body {
+* {
+    box-sizing: border-box;
+}
+
+nav {
+    display:flex;
+    justify-content: center;
+    position: fixed;
+    top:0;
+    left:0;
+
+}
+
+body{
+    margin:5px;
+    text-align: center;
+    max-width: 400px;
+}
+li{
+    display: inherit;
+
+}
+h1 {
+    margin-top: 70px;
+    margin-bottom:5px;
+    font-size: 2em;
+}
+h2 {
+    font-size: 1em;
+}
+ul {
+    display: inherit;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    border-radius: 6px;
+}
+
+ul, a {
+    margin: 5px;
+    padding: 10px;
+    
+}
+
+section {
+    margin: 30px auto;
+    max-height: 350px;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width:60%;
-    margin:auto;
-    align-content: center;
-    text-align: center;
 }
-
-h1 {
-    font-size: 3em;
-}
-h2 {
-    font-size: 2em;
-}
-
-
-section{
-    margin-top:20px;
-    margin-bottom: 20px;
-    min-height: 300px;
-}
-
-div{
-    height: 600px;
-    width:100%;
-}
-
 button{
     padding:12px;
     margin:12px;
-    background-color:#525174;
+   
     border-radius:6px;
     text-decoration: none;
     font-family: inherit;
     border: 0;
     font-size: 100%;
-
-
-}
-
-nav > ul{
-    display: inline-block;
-}
-li{
-    padding: 10px;
-    display: inherit;
-    
-}
-a {
-    color: inherit;
-    text-decoration: none;
-    border-radius: 6px;
-}
-
-li>a {
-    padding:20px;
-    margin: 10px;
-    
-
 }
 a:hover{
     background-color: #348AA7;
     transition: .4s;
     color: white;
 }
-
-
 .img {
-    width:100%;
+    width:95%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    min-height: 100px;
+    max-height: 350px;
 
 }
-
-.info{
-    /* height:200px; */
+.card {
+    background-color: rgba(94, 54, 204, 0.6);
+    max-width: 230px;
+    max-height:200px;
+    min-height:100px;
+    min-width:150px;
+    border-radius: 10px;
+   
+    /* padding: 20px; */
     margin: auto;
 }
+
 
 #welcome-img{
     background-image: url(./shoes.jpg);
 }
-
 #img-1{
     background-image: url(./shoe1.jpg);
+    background-size: 80%;
 }
 
 #img-2{
     background-image: url(./shoe2.jpeg);
+    height: 215wpx;
 }
 
 #img-3{
     background-image: url(./shoe3.jpeg);
     background-size: 60%;
-}
 
+}
 #contact{
     background-color: #5DD39E;
     color:white;
     top:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:40px;
+    height: 300px;
+    margin-bottom: 0;
 }
+
+
+#join-now-section{
+
+}
+
+@media ()
