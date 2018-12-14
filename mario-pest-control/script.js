@@ -9,6 +9,9 @@ coinSound = new Audio("coin.wav")
 //could have impreoved structure here by adding
 //the baddie as a nested object
 //ie. baddies = [{ goomba = {value:5,}}]
+
+//This is organized really well! 
+
 var baddies = [{
     name:"Goomba",
     id:"goomba",
