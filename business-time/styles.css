@@ -28,7 +28,7 @@ h1 {
     font-size: 2em;
 }
 h2 {
-    font-size: 1em;
+    font-size: .8em;
 }
 ul {
     display: inherit;
@@ -80,7 +80,7 @@ a:hover{
 
 }
 .card {
-    background-color: rgba(94, 54, 204, 0.6);
+    background-color: rgba(22, 189, 100, 0.6);
     max-width: 230px;
     max-height:200px;
     min-height:100px;
@@ -112,7 +112,7 @@ a:hover{
 
 } */
 #contact{
-    background-color: #5DD39E;
+    background-color: #348AA7;
     color:white;
     top:50%;
     display: flex;
@@ -124,10 +124,76 @@ a:hover{
 }
 
 
-#join-now-section{
-
+#join-now-button{
+    background-color: rgb(255,255,255)
 }
 
-@media (min-width:400px){
+#join-now-button:hover{
+    background-color: #348AA7;
+    transition: .4s;
+    color: white;
+}
+
+@media (min-width:600px){
+    body{
+        margin:auto;
+        text-align: center;
+        max-width: 100%;
+        
+    }
+    nav {
+        font-size: 1.5em;
+    }
+    h1 {
+        margin-top:80px;
+        font-size: 5em;
+    }
+    h2 {
+        font-size: 1.8em;
+        
+    }
+    .img {
+        width:100%;
+        background-size: inherit;
+        background-repeat: no-repeat;
+        background-position: center;
+        min-height:250px;
+
     
+    }
+    section{
+        justify-content: space-around;
+    }
+    #img-1{
+        background-image: url(./shoe1.jpg);
+        background-size: contain;
+        height: 400px;
+        
+    }
+    .card {
+        background-color: rgba(22, 189, 100, 0.6);
+        min-width: 380px;
+        min-height:300px;
+
+        border-radius: 10px;
+       
+        /* padding: 20px; */
+        margin: auto;
+    }
+    .card> ul{
+        display: flex;
+        flex-direction: column;
+        font-size: 1.5em;
+        line-height: 30px;
+        padding:30px;
+
+    }
+    #img-2{
+        background-image: url(./shoe2.jpeg);
+        height: 500px;
+        background-size: contain;
+    }
+    #contact{
+        font-size:1.3em;
+    }
 }
