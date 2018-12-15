@@ -95,21 +95,7 @@ function Armor(name, type, armor, slot, rarity){
 }
 
 
-function getUserInput(){
-    response = "";
-    while (response != "w"){
-        response = rs.keyIn("Press \'w\' to continue on your journey...\nPress \'i\' for charachter status\n",{limit: "wiq"})
-        if (response === "i"){
-            console.log(player.name+"\nHP: "+player.hp+"\nMaxHP: "+player.maxhp+"\nLevel: " + player.level + "\nExp :"+ player.exp+"\nNext Level: " + player.nextLevel)
-            console.log("Equipped:\nMain Hand: " + player.equipped.mainHand.name + " Power: " + player.equipped.mainHand.power + " Rarity: " + player.equipped.mainHand.rarity + "\n")
-            console.log("Gear:\nChest: " + player.equipped.chest.name + " Armor: "+ player.equipped.chest.armor +"\nLegs: " + player.equipped.legs.name + " Armor: " + player.equipped.legs.armor + "\nHead: " + player.equipped.head.name + " Armor: " + player.equipped.head.armor)
-        }
-        if (response === "q"){
-            player.isAlive = false;
-        }
-    }
-    return response;
-}
+
 
 function equipWeapon(weapon){
     player.equipped.mainHand = weapon
@@ -156,7 +142,7 @@ function checkLevelUp(){
         player.maxhp += Math.round(player.hp * level / 8)
         player.hp = player.maxhp
         player.nextLevel *= 1.8
-        console.log ("***" + player.name + " has hit level " + player.level + "!***")
+        console.clear ("***" + player.name + " has hit level " + player.level + "!***")
     }
     
 }
@@ -171,9 +157,9 @@ function lootGenerator(enemy){
         itemRoll += 20
     }
 
-    if (itemRoll < 60){
+    if (itemRoll < 50){
         console.log("the " + enemy.type + " did not have anything to loot")
-    } else if (itemRoll >= 60 && itemRoll <= 95){
+    } else if (itemRoll >= 50 && itemRoll <= 92){
         if (itemRoll % 4 == 0){
             //generate weapon
             weapon = getWeapon()
@@ -270,19 +256,19 @@ function spawnEnemy(){
     level = generateLevel(modifier)
     // hp = 5 * level;
     hp = generateHP(level,modifier)
-    expGiven = 5 * level;
-    attack = 3 * level; //can make this more dynamic later
-    armor = 1 * level;
+    expGiven = Math.round(3.5 * level);
+    attack = Math.round(3 * level); //can make this more dynamic later
+    armor = 2 * level;
     var enemy = new Baddie(type, modifier, hp, level, attack, armor, expGiven)
-    
+    instance = false
     //get modifier
     //get type
     //populate hp, level, exp given, equipped
-    combatEvent(enemy)
+    combatEvent(enemy,instance)
 }
 
 function generateHP(level, mod){
-    baseHp = 5 * level;
+    baseHp = 7 * level;
     if (mod === "weak"){
         hp = getRandomNum(100)/100 * baseHp
         if (hp < 2){
@@ -293,7 +279,7 @@ function generateHP(level, mod){
     } else if (mod === "King"){
         hp = getRandomNum(100)/100 * (level * 1.5) + baseHp
     } else {
-        hp = getRandomNum(100)/100 * level / 5 + baseHp
+        hp = getRandomNum(100)/100 * level / 4 + baseHp
     }
 
     return Math.round(hp)
@@ -338,11 +324,11 @@ function generateLevel(mod){
 function getModifier(n){
     // console.log("get modifier n:" + n)
     mod = ""
-    if (n <= 33){
+    if (n <= 30){
         mod = "weak"
-    } else if (n > 33 && n <= 80){
+    } else if (n > 30 && n <= 65){
         mod = "normal"
-    } else if (n > 80 && n <= 95){
+    } else if (n > 65 && n <= 95){
         mod = "elite"
     } else {
         mod = "King"
@@ -377,10 +363,9 @@ function equipLoot(items){
             } else {
                 
                 gearSlot = items[i].slot
-                //check if gear exists
-                if(player.equipped[gearSlot].name){
-                    removeGear(player.equipped[gearSlot])
-                }
+
+                removeGear(player.equipped[gearSlot])
+            
                 equipGear(items[i])
             }
             //if item is armor
@@ -391,7 +376,7 @@ function equipLoot(items){
 
 }
 
-function playerAttack(enemy, proneEnemy){
+function playerAttack(enemy, proneEnemy,instance){
     let move = rs.keyIn("Press \'a\' to attack!\nPress \'r\' to attempt to run!\n",{limit: "ar"})
     if (move === "a"){
         //do attack stuff
@@ -421,7 +406,11 @@ function playerAttack(enemy, proneEnemy){
         }
         return false
     } else {
-        runCheck = getRandomNum(100)
+        if (instance){
+            console.log("You cannot run away in here!")
+        }
+        else{
+            runCheck = getRandomNum(100)
             if (runCheck > 50){
                 console.log("You flee from battle!\n")
                 escapeBattle(enemy)
@@ -432,6 +421,7 @@ function playerAttack(enemy, proneEnemy){
                 return false
 
             }
+        }
     }
 }
 
@@ -489,13 +479,13 @@ function playerDead (player){
     
 }
 
-function combatEvent(enemy){
+function combatEvent(enemy, instance){
     let sucessfulRun = false;
     let combatRoll = getRandomNum(100)
     let firstMove = true;
     var pronePlayer = false;
     let proneEnemy = false;
-    console.log("You have encountered a " + enemy.modifier + " " + enemy.type + "!")
+    console.clear("You have encountered a " + enemy.modifier + " " + enemy.type + "!")
     while (player.isAlive && enemy.isAlive){
         if (firstMove){
             firstMove = false;
@@ -513,7 +503,7 @@ function combatEvent(enemy){
         console.log("level " + enemy.level + " " + enemy.modifier + " " + enemy.type + " HP:" + enemy.hp)
 
         if (combatRoll >= 50){
-            successfulRun = playerAttack(enemy, proneEnemy)
+            successfulRun = playerAttack(enemy, proneEnemy, instance)
             if (enemy.isAlive){
                 enemyAttack(pronePlayer, enemy)
                 proneEnemy = false;  
@@ -548,22 +538,31 @@ var instances = ["large cave", "strange door in the hillside", "ominous building
 
 
 function generateInstance(instanceType){
-    numberOfEnemies = getRandomNum(12)
-    if (numberOfEnemies < 6){
-        numberOfEnemies = 6;
+    console.clear("You have entered the " + instanceType + ", You sense danger...")
+    numberOfEnemies = getRandomNum(10)
+    if (numberOfEnemies < 4){
+        numberOfEnemies = 4;
     }
     var enemyType = enemies[getRandomNum(enemies.length)]
-    modifierInterval = numberOfEnemies/100;
-    console.log("modifier interval is " modifierInterval)
+    modifierInterval = 100/numberOfEnemies;
+    enemyLevel = 1;
     for(var i = 0; i <= numberOfEnemies; i++){
-        spawnInstanceEnemy(modifierInterval, enemyType)
-        modifierInterval += modifierInterval
+        
+        if(player.isAlive){
+            
+            spawnInstanceEnemy(enemyLevel, enemyType)
+            enemyLevel += modifierInterval
+            console.log("You continue deeper into the " + instanceType + "...\n")
+        }
 
     }
+    if (player.isAlive){
     console.log("You have reached the end of the " + instanceType)
     console.log("You have discovered a treasure chest!!")
     var items = treasureGenerator()
+    if(items.length > 0)
     equipLoot(items)
+    }
 }
 
 function spawnInstanceEnemy(modifier, type){
@@ -576,20 +575,22 @@ function spawnInstanceEnemy(modifier, type){
     attack = 3 * level; //can make this more dynamic later
     armor = 1 * level;
     var enemy = new Baddie(type, modifier, hp, level, attack, armor, expGiven)
-    
+    instance = true;
     //get modifier
     //get type
     //populate hp, level, exp given, equipped
-    combatEvent(enemy)
+    combatEvent(enemy, instance)
 }
 
 function treasureGenerator(){
     loot = []
     itemRoll = getRandomNum(100)
     //adjustment for harder guys
+    console.log("treasure roll " + itemRoll)
     if (itemRoll < 10){
         console.log("The treasure chest is empty...")
-    } else if (itemRoll >= 20 && itemRoll <= 35){
+        return loot
+    } else if (itemRoll >= 10 && itemRoll <= 35){
         if (itemRoll % 4 == 0){
             //generate weapon
             weapon = getWeapon()
@@ -604,7 +605,7 @@ function treasureGenerator(){
     } else {
         //generate 2 -3 items
 
-        for (i = 2; i < getRandomNum(6);i++){
+        for (i = 0; i < getRandomNum(6);i++){
             if (getRandomNum(13) % 4 == 0){
                 //generate weapon
                 weapon = getWeapon()
@@ -626,7 +627,7 @@ function generateEvent(){
     if (randomNumber <= 33){
         spawnEnemy()
     }
-    if (randomNumber > 48 && randomNumber < 52 ){
+    if (randomNumber > 33 && randomNumber < 37 ){
         instanceType = instances[getRandomNum(instances.length)]
         var response = rs.keyInYN("You encounter a " + instanceType + " Do you investigate further?")
         if (response){
@@ -635,7 +636,7 @@ function generateEvent(){
             console.log("You back away slowly...")
         }
     }
-    else if (randomNumber > 85 && randomNumber <= 100) {
+    else if (randomNumber > 82 && randomNumber <= 100) {
         incrementHealth()
     }
     
@@ -651,7 +652,25 @@ function incrementHealth(){
     }
 
 }
+function getUserInput(){
+    response = "";
+    while (response != "w"){
+        response = rs.keyIn("Press \'w\' to continue on your journey...\nPress \'i\' for charachter status\n",{limit: "wiq"})
+        if (response === "i"){
+            logCharStatus()
+        }
+        if (response === "q"){
+            player.isAlive = false;
+        }
+    }
+    return response;
+}
 
+function logCharStatus(){
+    console.log(player.name+"\nHP: "+player.hp+"\nMaxHP: "+player.maxhp+"\nLevel: " + player.level + "\nExp :"+ player.exp+"\nNext Level: " + player.nextLevel)
+    console.log("Equipped:\nMain Hand: " + player.equipped.mainHand.name + " Power: " + player.equipped.mainHand.power + " Rarity: " + player.equipped.mainHand.rarity + "\n")
+    console.log("Gear:\nChest: " + player.equipped.chest.name + " Armor: "+ player.equipped.chest.armor +"\nLegs: " + player.equipped.legs.name + " Armor: " + player.equipped.legs.armor + "\nHead: " + player.equipped.head.name + " Armor: " + player.equipped.head.armor)
+}
 var name = rs.question("Another one for the meat grinder?  Great!  What is your name?\n")
 var player = new Player(name)
 

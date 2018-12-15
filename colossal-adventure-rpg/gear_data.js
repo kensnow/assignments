@@ -38,31 +38,31 @@ module.exports = [
     {
     name:"leather shirt",
     type:"armor",
-    armor:3,
+    armor:4,
     slot:"chest",
     rarity:"common",
     },{
     name:"leather chapps",
     type:"armor",
-    armor:2,
+    armor:3,
     slot:"legs",
     rarity:"common"
     },{
     name:"leather cap",
     type:"armor",
-    armor:2,
+    armor:3,
     slot:"head",
     rarity:"common",
     },{
     name:"chainmail shirt",
     type:"armor",
-    armor:4,
+    armor:5,
     slot:"chest",
     rarity:"common"
     },{
     name:"chainmail pants",
     type:"armor",
-    armor:3,
+    armor:4,
     slot:"legs",
     rarity:"common"
     },{
@@ -74,13 +74,13 @@ module.exports = [
     },{
     name:"hardened leather chapps",
     type:"armor",
-    armor:3,
+    armor:4,
     slot:"legs",
     rarity:"common"
     },{
     name:"hardened leather cap",
     type:"armor",
-    armor:2,
+    armor:3,
     slot:"head",
     rarity:"common"
     },{
@@ -93,66 +93,84 @@ module.exports = [
     name:"fancy pants",
     type:"armor",
     armor:2,
-    slot:"pants",
+    slot:"legs",
     rarity:"common"
     },{
     name:"fancy fedora",
     type:"armor",
-    armor: 3,
+    armor: 4,
     slot:"head",
     rarity:"uncommon"
     },{
     name:"steel chestplate",
     type:"armor",
-    armor:6,
+    armor:7,
     slot:"chest",
     rarity:"uncommon"
     },{
     name:"steel greeves",
     type:"armor",
-    armor:4,
+    armor:5,
     slot:"legs",
     rarity:"uncommon"
     },{
     name:"steel cap",
     type:"armor",
     slot:"head",
-    armor: 3,
+    armor: 4,
     rarity:"uncommon"
     },{
     name:"padded steel chestplate",
     type:"armor",
-    armor:7,
+    armor:8,
     slot:"chest",
     rarity:"uncommon"
     },{
     name:"padded steel greeves",
     type:"armor",
-    armor:5,
+    armor:6,
     slot:"legs",
     rarity:"uncommon"
     },{
     name:"padded steel cap",
     type:"armor",
-    armor:4,
+    armor:5,
     slot:"head",
     rarity:"uncommon"
     },{
-    name:"smooth scale chestmail",
+    name:"smooth scale brestplate",
     type:"armor",
-    armor: 9,
+    armor: 10,
     slot:"chest",
     rarity:"rare"
     },{
     name:"smooth scale greeves",
     type:"armor",
-    armor: 7,
+    armor: 8,
     slot:"legs",
     rarity:"rare"
     },{
     name:"smooth scale helmet",
     type:"armor",
-    armor: 6,
+    armor: 8,
+    slot:"head",
+    rarity:"rare" 
+    },{
+    name:"Onix Breastplate of Deflection",
+    type:"armor",
+    armor: 14,
+    slot:"chest",
+    rarity:"rare" 
+    },{
+    name:"Onix Greeves of Deflection",
+    type:"armor",
+    armor: 12,
+    slot:"legs",
+    rarity:"rare" 
+    },{
+    name:"Onix Helmet of Deflection",
+    type:"armor",
+    armor: 12,
     slot:"head",
     rarity:"rare" 
     }
