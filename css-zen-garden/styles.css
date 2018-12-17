@@ -1,0 +1,10 @@
+body {
+    display: grid;
+}
+
+@media(min-width:1130px){
+
+    /*do grid stuff*/
+
+    
+}
