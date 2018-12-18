@@ -1,0 +1,36 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+h1{
+    border-bottom: 4px solid blue;
+}
+h3{
+    font-size:.9em;
+}
+input {
+    height: 26px;
+
+}
+button{
+    height: 32px;
+    background: white;
+    border: 2px solid orange;
+
+    
+}
+.container {
+    margin: auto;
+    border: 2px solid orange;
+    padding:20px;
+
+    text-align: center;
+}
+.input-line{
+    display: flex;
+    justify-content: center;
+}
+

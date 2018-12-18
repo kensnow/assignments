@@ -39,3 +39,57 @@ When "save" is clicked, the form will disapear, and the new values will be displ
 On save, the todo will be edited in the database
 Read through the "using id" section in the API documentation to learn how to delete items using the item's unique id.
 */
+
+function getData(){
+    let request = axios.get("https://api.vschool.io/kensnow/todo")
+        .then(function(response){
+            updateList(response.data)
+
+     
+        })
+        .catch(function(err){
+            console.log(err)
+        })
+        
+}
+//toDoConstructor
+function Todo (title,description,price,img,completed){
+    this.title = title,
+    this.description = description,
+    this.price = price,
+    this.img = img,
+    this.completed = completed
+
+}
+
+function updateList(data){
+    //foreach object in array, create new ToDo constructors with data &, append to list on screen
+    let list = document.querySelector("#the-list")
+    data.forEach(function(todo){
+    
+        let newTodo = new Todo(todo.title,todo.description,todo.price,todo.imgUrl,todo.completed)
+
+        console.log(newTodo)
+        console.log(list)
+    })
+}
+
+function appendTodo(toDo){
+    //create elements
+    let todoDiv = document.createElement("div")
+    let title = document.createElement("h4")
+    let desc = document.createElement("p")
+    let value = document.createElement("p")
+    let img = document.createElement("div")
+    let status = document.createElement("p")
+    //create text nodes
+    let titleNode =  document.createTextNode(toDo.title)
+    let descNode = document.createTextNode(toDo.description)
+    let valueNode = document.createTextNode(toDo.price)
+    let imgNode = document.createTextNode(toDo.imgURL)
+    let statusNode = document.screateTextNode(toDo.completed)
+    //append text to elemnts
+    //add classes and ids to eleemnts
+}
+const getRequest = getData()
+
