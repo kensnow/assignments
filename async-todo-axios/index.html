@@ -8,18 +8,21 @@
     <title>Axios Todo Project</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container" name="container">
         <h1>Todid</h1>
         <h3>Finally an app that allows you to get credit for all the things you have already done!</h3>
-        <div title="todo-app">
-            <div class=input-line>
-                   <input type="text" placeholder="Add Todid" id="input">
-                   <input type="number" placeholder="Value" id="value"> 
-                <button>Add ToDid</button>
-             <div id="the-list">
+        <div title="todo-app" name="todoApp">
+            <div class=input-line name="inputLine">
+                   <input type="text" placeholder="Add Todid" id="input-title" class="input">
+                   <input type="number" placeholder="Value" id="input-value" class="input">
+                   <input type="text" placeholder="description" id="input-description" class="input"> 
+                   <input type="text" placeholder="image Url" id="input-img" class="input"> 
+            </div> 
+            <button id="addTodid">Add ToDid</button>
+             <div id="the-list" name="theList">
 
              </div>
-            </div>
+           
             
         </div>
     </div>

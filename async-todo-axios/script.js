@@ -39,42 +39,53 @@ When "save" is clicked, the form will disapear, and the new values will be displ
 On save, the todo will be edited in the database
 Read through the "using id" section in the API documentation to learn how to delete items using the item's unique id.
 */
+var addButton = document.querySelector("#addTodid")
+var inputs = document.querySelectorAll(".input")
+addButton.addEventListener("click",function(e){
+    getTodoInput(inputs);
+})
 
 function getData(){
     let request = axios.get("https://api.vschool.io/kensnow/todo")
         .then(function(response){
-            updateList(response.data)
-
+            const todoArr = updateList(response.data)
+            console.log(response.data)
+            return todoArr
      
         })
         .catch(function(err){
             console.log(err)
         })
         
+        
 }
 //toDoConstructor
-function Todo (title,description,price,img,completed){
+function Todo (title,description,price = 10,img,completed = false,id){
     this.title = title,
     this.description = description,
     this.price = price,
     this.img = img,
-    this.completed = completed
-
+    this.completed = completed,
+    this.id = id
 }
 
 function updateList(data){
     //foreach object in array, create new ToDo constructors with data &, append to list on screen
-    let list = document.querySelector("#the-list")
+    
+    let todoArr = []
     data.forEach(function(todo){
     
-        let newTodo = new Todo(todo.title,todo.description,todo.price,todo.imgUrl,todo.completed)
-
+        let newTodo = new Todo(todo.title, todo.description, todo.price, todo.imgUrl, todo.completed, todo._id)
+        appendTodo(newTodo)
+        todoArr.push(newTodo)
         console.log(newTodo)
-        console.log(list)
+       
     })
+    return todoArr;
 }
 
 function appendTodo(toDo){
+    let list = document.querySelector("#the-list")
     //create elements
     let todoDiv = document.createElement("div")
     let title = document.createElement("h4")
@@ -82,14 +93,89 @@ function appendTodo(toDo){
     let value = document.createElement("p")
     let img = document.createElement("div")
     let status = document.createElement("p")
+    let deleteButton = document.createElement("button")
+    let editButton = document.createElement("button")
     //create text nodes
     let titleNode =  document.createTextNode(toDo.title)
     let descNode = document.createTextNode(toDo.description)
-    let valueNode = document.createTextNode(toDo.price)
+    let valueNode = document.createTextNode(`value: ${toDo.price}`)
     let imgNode = document.createTextNode(toDo.imgURL)
-    let statusNode = document.screateTextNode(toDo.completed)
+    let statusNode = document.createTextNode(`completed: ${toDo.completed}`)
+    let deleteButtonNode = document.createTextNode("Delete")
+    let editButtonNode = document.createTextNode("Edit")
     //append text to elemnts
+    title.appendChild(titleNode)
+    desc.appendChild(descNode)
+    value.appendChild(valueNode)
+    img.appendChild(imgNode)
+    status.appendChild(statusNode)
+    deleteButton.appendChild(deleteButtonNode)
+    editButton.appendChild(editButtonNode)
     //add classes and ids to eleemnts
-}
-const getRequest = getData()
+    title.classList.add("todo", "title")
+    desc.classList.add("todo", "description")
+    value.classList.add("todo", "value")
+    img.classList.add("todo", "img")
+    status.classList.add("todo", "status")
+    deleteButton.classList.add("todo", "delete")
+    editButton.classList.add("todo", "edit")
+    todoDiv.classList.add("todo","item")
+    //append child elements to div
+    todoDiv.appendChild(deleteButton)
+    todoDiv.appendChild(editButton)
+    todoDiv.appendChild(title)
+    todoDiv.appendChild(desc)
+    todoDiv.appendChild(value)
+    // todoDiv.appendChild(img)
+    todoDiv.appendChild(status)
 
+    //append to main doc
+    list.appendChild(todoDiv)
+}
+const todoArr = getData()
+
+function getTodoInput(inputs){
+    let title, description,img = ""; 
+    
+
+    inputs.forEach(function(element){
+
+        switch(element.id){
+            case "input-title":
+                element.value == "" ? alert("Title must be entered!") : title = element.value;
+                
+                break;
+            case "input-value":
+                price = element.value;
+                break;
+            case "input-description":
+                description = element.value;
+                break;
+            case "input-img":
+                img = element.value;
+                break;
+            default:
+                alert("Problem with " + element)
+
+        } //end switch
+        // title is required, if it exists, create todo object
+
+    })
+    if (title){
+        let todo = new Todo(title, description, price, img)
+        console.log("title, price, description, img" + title, price, description, img)
+        postRequest(todo)
+    }
+}
+
+function postRequest (todo){
+    axios.post("https://api.vschool.io/kensnow/todo", todo)
+    .then(function(response){
+        console.log ("response:" + response.data)
+        appendTodo(response.data)
+ 
+    })
+    .catch(function(err){
+        console.log(err)
+    })
+}
