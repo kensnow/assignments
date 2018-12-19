@@ -39,17 +39,19 @@ When "save" is clicked, the form will disapear, and the new values will be displ
 On save, the todo will be edited in the database
 Read through the "using id" section in the API documentation to learn how to delete items using the item's unique id.
 */
-var addButton = document.querySelector("#addTodid")
-var inputs = document.querySelectorAll(".input")
-addButton.addEventListener("click",function(e){
+const addButton = document.querySelector("#addTodid")
+const inputs = document.querySelectorAll(".input")
+const url = "https://api.vschool.io/kensnow/todo/"
+
+addButton.addEventListener("click", e => {
     getTodoInput(inputs);
 })
 
 function getData(){
-    let request = axios.get("https://api.vschool.io/kensnow/todo")
+    axios.get(url)
         .then(function(response){
             const todoArr = updateList(response.data)
-            console.log(response.data)
+            // console.log(response.data)
             return todoArr
      
         })
@@ -60,10 +62,10 @@ function getData(){
         
 }
 //toDoConstructor
-function Todo (title,description,price = 10,img,completed = false,id){
+function Todo (title,description,price,img,completed = false,id){
     this.title = title,
     this.description = description,
-    this.price = price,
+    this.price = price > 0 ? price: 10,
     this.img = img,
     this.completed = completed,
     this.id = id
@@ -78,7 +80,7 @@ function updateList(data){
         let newTodo = new Todo(todo.title, todo.description, todo.price, todo.imgUrl, todo.completed, todo._id)
         appendTodo(newTodo)
         todoArr.push(newTodo)
-        console.log(newTodo)
+        // console.log(newTodo)
        
     })
     return todoArr;
@@ -103,6 +105,41 @@ function appendTodo(toDo){
     let statusNode = document.createTextNode(`completed: ${toDo.completed}`)
     let deleteButtonNode = document.createTextNode("Delete")
     let editButtonNode = document.createTextNode("Edit")
+    // add event listeners
+    deleteButton.addEventListener("click", e => {
+        axios.delete(url + toDo.id)
+            .then(todoDiv.remove())
+            .catch(function(err){
+                console.log(err)
+            })
+    })
+    todoDiv.addEventListener("click", function(e){
+        //update completed status to toggle true/false
+        console.log (e.target)
+        if(e.target.localName != "button"){
+            toDo.completed = !toDo.completed
+            // console.log (this)
+            axios.put(url + toDo.id, toDo)
+                .then(response =>  {
+                    this.lastElementChild.innerHTML = `completed: ${toDo.completed}`
+                })
+                .catch(function(err){
+                    console.log(err)
+                })
+            //
+            for (let i = 0; i < this.childNodes.length; i++){
+                for (let n = 0; n < this.childNodes[i].classList.length; n++){
+                    if (this.childNodes[i].classList[n] === "strikethrough"){
+                        let child = this.childNodes[i]
+                        // console.log(this.childNodes[i])
+                        toDo.completed ? child.style.textDecoration = "line-through" : child.style.textDecoration = "none"
+                        
+                    }
+                }
+            }
+        }
+    })
+
     //append text to elemnts
     title.appendChild(titleNode)
     desc.appendChild(descNode)
@@ -112,14 +149,29 @@ function appendTodo(toDo){
     deleteButton.appendChild(deleteButtonNode)
     editButton.appendChild(editButtonNode)
     //add classes and ids to eleemnts
-    title.classList.add("todo", "title")
-    desc.classList.add("todo", "description")
-    value.classList.add("todo", "value")
+    title.classList.add("todo", "title", "strikethrough")
+    desc.classList.add("todo", "description", "strikethrough")
+    value.classList.add("todo", "value", "strikethrough")
     img.classList.add("todo", "img")
-    status.classList.add("todo", "status")
+    status.classList.add("todo", "status", "strikethrough")
     deleteButton.classList.add("todo", "delete")
     editButton.classList.add("todo", "edit")
     todoDiv.classList.add("todo","item")
+    
+    //style strikethroughs appropriately
+    if(toDo.completed){
+        title.style.textDecoration = "line-through" 
+        desc.style.textDecoration = "line-through"
+        value.style.textDecoration = "line-through"
+        status.style.textDecoration = "line-through"
+    } else {
+
+        title.style.textDecoration = "none" 
+        desc.style.textDecoration = "none"
+        value.style.textDecoration = "none"
+        status.style.textDecoration = "none"
+    }
+
     //append child elements to div
     todoDiv.appendChild(deleteButton)
     todoDiv.appendChild(editButton)
@@ -131,6 +183,8 @@ function appendTodo(toDo){
 
     //append to main doc
     list.appendChild(todoDiv)
+   
+
 }
 const todoArr = getData()
 
@@ -169,7 +223,7 @@ function getTodoInput(inputs){
 }
 
 function postRequest (todo){
-    axios.post("https://api.vschool.io/kensnow/todo", todo)
+    axios.post(url, todo)
     .then(function(response){
         console.log ("response:" + response.data)
         appendTodo(response.data)

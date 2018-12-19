@@ -60,9 +60,11 @@ button{
 }
 .value{
     grid-area: v;
+    text-align: right;
 }
 .status{
     grid-area: s;
+    text-align: right;
 }
 .delete{
     grid-area: db;
@@ -77,7 +79,9 @@ button{
     height:30px;
     border:white;
 }
+
 #the-list > div {
+    
     display: grid;
     grid-template-areas:
         "h h h h h h"
