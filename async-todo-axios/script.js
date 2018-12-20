@@ -44,7 +44,9 @@ const inputs = document.querySelectorAll(".input")
 const url = "https://api.vschool.io/kensnow/todo/"
 
 addButton.addEventListener("click", e => {
-    getTodoInput(inputs);
+    let todo = getTodoInput(inputs);
+    postRequest(todo)
+
 })
 
 function getData(){
@@ -113,34 +115,91 @@ function appendTodo(toDo){
                 console.log(err)
             })
     })
+    
+    editButton.addEventListener("click", e => {
+        //get ph text
+        console.log()
+        let titleText = title.textContent
+        let descText = desc.textContent
+        let valueText = value.value
+        //remove items to be replaced
+        editButton.remove()
+        title.remove()
+        desc.remove()
+        value.remove()
+        
+        title = document.createElement("input")
+        desc = document.createElement("input")
+        value = document.createElement("input")
+        submitButton = document.createElement("button")
+        
+        //set attributes
+        title.setAttribute("type", "text")
+        title.setAttribute("placeholder", titleText)
+        title.setAttribute("class", "input")
+
+        desc.setAttribute("type", "text")
+        desc.setAttribute("placeholder", descText)
+        desc.setAttribute("class", "input")
+
+        value.setAttribute("type", "number")
+        value.setAttribute("placeholder", toDo.price)
+        value.setAttribute("class", "input")
+
+        submitButton.setAttribute("class", "edit")
+        submitButton.textContent = "Submit"
+
+        todoDiv.style.display = "grid"
+        value.style.width = "50px"
+        console.log(submitButton)
+        
+        todoDiv.appendChild(submitButton)
+        todoDiv.appendChild(title)
+        todoDiv.appendChild(desc)
+        todoDiv.appendChild(value)
+
+        //create event listener on submit, to send back data to api
+        submitButton.addEventListener("click", function(e){
+            //title,description,price,img,completed = false,id
+            let updateTodo = new Todo(title,desc,value)
+            console.log("url: " + url + " todo.id: " + toDo.id +  " updatetodo: " + updateTodo)
+            axios.put(url + toDo.id, updateTodo)
+                .then(response => {
+                    appendTodo(response.data)
+
+                })
+        })
+    })
+
+
     todoDiv.addEventListener("click", function(e){
         //update completed status to toggle true/false
-        console.log (e.target)
+        //check to ensure user is not trying to click on buttons
         if(e.target.localName != "button"){
+            //toggle toDo.completed, then  send changes to server
             toDo.completed = !toDo.completed
-            // console.log (this)
+
             axios.put(url + toDo.id, toDo)
                 .then(response =>  {
+                    //update html text once reply is recieved
                     this.lastElementChild.innerHTML = `completed: ${toDo.completed}`
+                    for (let i = 0; i < this.childNodes.length; i++){
+                        for (let n = 0; n < this.childNodes[i].classList.length; n++){
+                            if (this.childNodes[i].classList[n] === "strikethrough"){
+                                let child = this.childNodes[i]
+                                toDo.completed ? child.style.textDecoration = "line-through" : child.style.textDecoration = "none"
+                            }
+                        }
+                    }
                 })
                 .catch(function(err){
                     console.log(err)
                 })
-            //
-            for (let i = 0; i < this.childNodes.length; i++){
-                for (let n = 0; n < this.childNodes[i].classList.length; n++){
-                    if (this.childNodes[i].classList[n] === "strikethrough"){
-                        let child = this.childNodes[i]
-                        // console.log(this.childNodes[i])
-                        toDo.completed ? child.style.textDecoration = "line-through" : child.style.textDecoration = "none"
-                        
-                    }
-                }
-            }
         }
     })
 
     //append text to elemnts
+    
     title.appendChild(titleNode)
     desc.appendChild(descNode)
     value.appendChild(valueNode)
@@ -171,16 +230,10 @@ function appendTodo(toDo){
         value.style.textDecoration = "none"
         status.style.textDecoration = "none"
     }
-
-    //append child elements to div
-    todoDiv.appendChild(deleteButton)
-    todoDiv.appendChild(editButton)
-    todoDiv.appendChild(title)
-    todoDiv.appendChild(desc)
-    todoDiv.appendChild(value)
-    // todoDiv.appendChild(img)
-    todoDiv.appendChild(status)
-
+    //append prepared elements to the Todo div
+    [deleteButton, editButton,title, desc, value, status].forEach(el => todoDiv.appendChild(el))
+ 
+    todoDiv.style.borderLeft ="6px solid rgb(255, 219, 77)"
     //append to main doc
     list.appendChild(todoDiv)
    
@@ -190,8 +243,6 @@ const todoArr = getData()
 
 function getTodoInput(inputs){
     let title, description,img = ""; 
-    
-
     inputs.forEach(function(element){
 
         switch(element.id){
@@ -216,9 +267,16 @@ function getTodoInput(inputs){
 
     })
     if (title){
-        let todo = new Todo(title, description, price, img)
+        // let todo = new Todo(title, description, price, img)
+        let todo = {
+            title,
+            price,
+            description,
+            img
+
+        }
         console.log("title, price, description, img" + title, price, description, img)
-        postRequest(todo)
+        return todo
     }
 }
 
@@ -226,7 +284,8 @@ function postRequest (todo){
     axios.post(url, todo)
     .then(function(response){
         console.log ("response:" + response.data)
-        appendTodo(response.data)
+        let todo = new Todo(response.data.title, response.data.description, response.data.price, response.data.imgUrl,response.data.completed, response.data._id)
+        appendTodo(todo)
  
     })
     .catch(function(err){

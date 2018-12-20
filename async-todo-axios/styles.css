@@ -13,19 +13,21 @@ h3{
 }
 input {
     height: 26px;
+    border: none;
+    border: 1px solid grey;
+    border-radius: 2px;
+
 
 }
 button{
     height: 32px;
     background: white;
     border: 2px solid rgb(15, 143, 15);
-
-
+    border-radius: 4px;
     
 }
 .container {
     margin: auto;
-    border: 2px solid orange;
     padding:20px;
     text-align: center;
 }
@@ -52,7 +54,6 @@ button{
 }
 .title{
     grid-area: h;
-    background: rgba(198, 232, 243, 0.514);
 }
 .description{
     grid-area: d;
@@ -83,10 +84,10 @@ button{
 #the-list > div {
     
     display: grid;
+    margin-bottom: 20px;
     grid-template-areas:
-        "h h h h h h"
-        "db d d d v v"
+        "db h h h . ."
+        ". d d d v v"
         "eb d d d s s";
 
 }
-
