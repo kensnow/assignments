@@ -1,5 +1,5 @@
 
-const addButton = document.querySelector("#addTodid")
+const addButton = document.querySelector("#addtodo")
 const inputs = document.querySelectorAll(".input")
 const url = "https://api.vschool.io/kensnow/todo/"
 
