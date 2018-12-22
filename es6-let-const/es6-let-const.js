@@ -46,7 +46,7 @@ function mapVegetables(arr) {
     })
 }
 
-console.log(mapVegetables(carrots))
+// console.log(mapVegetables(carrots))
 /*
 Task 2
 Re-write this .filter() using an arrow function:
@@ -71,22 +71,37 @@ const people = [
 ]
 
 function filterForFriendly(arr) {
-    return arr.filter(function(person) {
-        return !!person.friendly
+    return arr.filter((person) => {
+        return person.friendly
     })
 }
+
+console.log(filterForFriendly(people))
+
+
+
 /*
 Task 3
 Re-write the following functions to be arrow functions:
 */
-function doMathSum(a, b) {
+let a = 2
+let b = 6
+
+doMathSum = (a, b) => {
     return a + b
 }
+
+console.log(doMathSum(a, b))
 
 var produceProduct = function(a, b) {
     return a * b
 }
 
+produceProduct = (a,b) => {
+    return a * b
+}
+
+console.log(produceProduct(5,6))
 /*
 Task 4
 Write a printString function that takes firstName, lastName, and age as parameters and returns a string like the following:
@@ -95,7 +110,15 @@ Hi Kat Stark, how does it feel to be 40?
 firstName should default to "Jane"
 lastName should default to "Doe"
 age should default to 100
+*/
 
+printString = (x = "Jane", y = "Doe", z = 100) => {
+    return (`Hi ${x} ${y}, how do you feel to be ${z}?`)
+}
+
+console.log(printString("Ken"))
+
+/*
 Extra Credit
 Use template literals to build the string
 
@@ -130,6 +153,31 @@ function filterForDogs(arr) {
         }
     })
 }
+*/
+
+const animals = [
+    {
+        type: "dog",
+        name: "theodore"
+    },
+    {
+        type: "cat",
+        name: "whiskers"
+    },
+    {
+        type: "pig",
+        name: "piglette"
+    },
+    {
+        type: "dog",
+        name: "sparky"
+    }
+ ];
+ 
+filterforDogs = arr => { return arr.filter(animal) => {return animal === "dog"} }
+console.log(filterforDogs(animals))
+/*
+
 Template Literals
 Using template literals, write a function that takes location and name parameters and outputs a message formatted like this:
 
