@@ -174,10 +174,10 @@ const animals = [
     }
  ];
  
-filterforDogs = arr => { return arr.filter(animal) => {return animal === "dog"} }
-console.log(filterforDogs(animals))
+// filterforDogs = arr => { return arr.filter(animal) => {return animal === "dog"} }
+// console.log(filterforDogs(animals))
+// /*
 /*
-
 Template Literals
 Using template literals, write a function that takes location and name parameters and outputs a message formatted like this:
 
