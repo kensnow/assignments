@@ -174,11 +174,21 @@ const animals = [
     }
  ];
  
-// filterforDogs = arr => { return arr.filter(animal) => {return animal === "dog"} }
-// console.log(filterforDogs(animals))
+filterforDogs = arr => { return arr.filter((animal) => {return animal.type === "dog"}) }
+console.log(filterforDogs(animals))
+
+const welcomeMessage = (loc,name) => {
+    console.log(`Hello ${name}!\n`)
+    console.log(`Welcome to ${loc}!\n`)
+    console.log(`I hope you enjoy your stay.  Please ask the president of ${loc} if you need anything.\n`)
+} 
+
+welcomeMessage("SLC","Ken")
 // /*
 /*
 Template Literals
+
+
 Using template literals, write a function that takes location and name parameters and outputs a message formatted like this:
 
 Hi Janice!
