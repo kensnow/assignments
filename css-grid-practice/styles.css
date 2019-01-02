@@ -1,0 +1,32 @@
+body{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 6px;
+    width: 50%;
+    grid-auto-rows: minmax(100px, auto)
+}
+
+.color-box{
+    /* height: 80px; */
+    border-radius: 6px;
+}
+
+.red {
+    background: red;
+    grid-column: 1 / span 4;
+
+}
+.blue {
+    background: blue;
+    grid-row: span 2;
+    grid-column: span 2;
+}
+.green {
+    background: green;
+    grid-column: 3 / span 2;
+}
+
+.purple{
+    background:purple;
+    grid-column: span 1;
+}

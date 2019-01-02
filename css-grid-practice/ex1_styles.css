@@ -1,0 +1,37 @@
+body{
+    display: grid;
+    grid-template: repeat(3, 40px)/repeat(4, 1fr);
+    grid-gap: 6px;
+    width: 50%;
+    
+}
+
+.color-box{
+    height: 40px;
+    border-radius: 6px;
+}
+
+.row {
+    width: 50%;
+}
+
+.red {
+    background: red;
+    grid-column: 1 / span 2;
+
+}
+.blue {
+    background: blue;
+    grid-column: 3 / span 2;
+}
+.green {
+    background: green;
+}
+.yellow{
+    background: yellow;
+    grid-column: 1 / span 4;
+}
+.purple{
+    background:purple;
+    grid-column: 2 / span 3;
+}
