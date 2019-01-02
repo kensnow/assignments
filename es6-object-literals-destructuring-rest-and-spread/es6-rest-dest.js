@@ -123,3 +123,72 @@ combineAnimals(realAnimals, magicalAnimals, mysteriousAnimals);
 
 // ["dog", "cat", "mouse", "jackolope", "platypus"]
 */
+
+
+// function combineAnimals(...animalGroups) {  
+//     let [firstGroup,secondGroup,thirdGroup,beyond] = animalGroups
+//     return [...firstGroup,...secondGroup, ...thirdGroup, ...beyond]
+// }
+
+// const realAnimals = ["dog", "cat", "mouse"];
+// const magicalAnimals = ["jackolope"];
+// const mysteriousAnimals = ["platypus"];
+// const forestAnimals = ["Mr. Forrest", "deer"];
+
+// console.log(combineAnimals(realAnimals, magicalAnimals, mysteriousAnimals, forestAnimals)); 
+
+// // ["dog", "cat", "mouse", "jackolope", "platypus"]
+/*
+Try to make the following function more ES6xy:
+*/
+// function product(a, b, c, d, e) {  
+//   var numbers = [a,b,c,d,e];
+
+//   return numbers.reduce(function(acc, number) {
+//     return acc * number;
+//   }, 1)
+// }
+
+// function product(...numbers){
+//     return numbers.reduce((x, y) => {return x * y}, 1)
+// }
+// console.log(product(4,6,2,4,5))
+/*
+Make the following function more ES6xy. Use at least both the rest and spread operators:
+
+function unshift(array, a, b, c, d, e) {  
+  return [a, b, c, d, e].concat(array);
+}
+*/
+
+// const unshift = (...items) => {
+//     firstItem = items.shift()
+//     return ([...items,...firstItem])
+// }
+
+//Write some destructuring code to help this function out. Use object literals to simplify it:
+
+// function populatePeople(names){
+//     return names.map(function(name){
+//         name = name.split(" ");
+//         // your code
+//         return {
+//             "firstName: " + firstName + "," + "lastName: " + lastName
+//         }
+//     })
+// }
+
+console.log(populatePeople(["Frank Peterson", "Suzy Degual", "Liza Jones"]))
+
+function populatePeople(names){
+    return names.map( name => {
+        let [firstName, secondName] = name.split(" ")
+        return (`firstName: ${firstName}, secondName: ${secondName}`)
+    })
+}
+
+//[
+//  {firstName: "Frank", lastName: "Peterson"},
+//  {firstName: "Suzy", lastName: "Degual"},
+//  {firstName: "Liza", lastName: "Jones"},
+//]

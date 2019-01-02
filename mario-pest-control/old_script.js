@@ -44,8 +44,8 @@ var baddies = [{
 //     })
 // }
 
-pestButtons.map(button => {
-    return button.addEventListener("click", e => {
+pestButtons.map((button) => {
+    button.addEventListener("click", e => {
         id = e.target.name;
         valueDisp = parseInt(document.querySelector("#"+id).value)
         document.querySelector("#"+id).value = valueDisp + 1
