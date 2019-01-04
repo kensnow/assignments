@@ -1,0 +1,9 @@
+.products{
+    width: 300px;
+    height: 400px;
+    background-image: url("./red_bull.jpeg");
+    background-repeat: none;
+    background-position: center;
+    background-size: 400px;
+
+}

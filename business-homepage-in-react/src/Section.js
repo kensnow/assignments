@@ -1,11 +1,14 @@
 import React from "react";
+import Description from "./Description.js"
+import Product from "./Product.js"
+import styles from "./assets/Section.module.css"
 
 const Section = () => {
     return (
-        <section className="description">
-            <h3>Our bulls are full of energy!</h3>
-            <p>Lightly carbonated, full of a strange flavor  </p>
-        </section>
+        <div className={styles.products}>
+            <Description/>
+            <Product/>
+        </div>
     )
 }
 

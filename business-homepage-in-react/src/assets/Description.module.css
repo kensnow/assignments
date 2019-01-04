@@ -1,0 +1,9 @@
+section{
+    background:royalblue;
+    padding: 10px;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 2em;
+}

@@ -1,0 +1,18 @@
+.head{
+    background: red;
+    width: 100%;
+}
+
+.head, li{
+    display:inline-block;
+    font-size: 30px;
+
+    color: white;
+    
+}
+
+.head, li, ul{
+    padding: 0px 14px;
+
+
+}

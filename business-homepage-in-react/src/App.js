@@ -4,11 +4,11 @@ import Header from "./Header"
 import Section from "./Section"
 import Footer from "./Footer"
 
-import "./styles.css"
+import styles from "./assets/App.module.css"
 
 const App = () => {
     return (
-        <div className="mainApp">
+        <div className={styles.app}>
             <Header/>
             <Section/>
             <Footer/>

@@ -1,9 +1,10 @@
 import React from "react";
+import styles from "./assets/Header.module.css"
 
 const Header = () => {
     return (
-        <header className="header">
-            <ul className="header--links">
+        <header className={styles.head}>
+            <ul>
                 <li>Home</li>
                 <li>Products</li>
                 <li>About</li>
