@@ -1,5 +1,19 @@
 body{
     background-image: url("./Travel.jpg");
     background-size: cover;
+    background-repeat: no-repeat;
     
+}
+
+.pic-box{
+    background-image: url("./cancun.jpg");
+    height:200px;
+    width:200px;
+}
+
+.app-div{
+    width:600px;
+    margin: auto;
+    display: grid;
+    grid-template: 3fr/6fr;
 }
