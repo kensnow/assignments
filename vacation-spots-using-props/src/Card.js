@@ -4,13 +4,13 @@ import {getPrice,getSeasonColor} from "./helperFunctions"
 
 const Card = ({place,price,timeToGo,backgroundImage}) => {
     let priceIcon = getPrice(price)
-    let seasonColor = getSeasonColor(timeToGo)
+    let backgroundColor = getSeasonColor(timeToGo)
     console.log(backgroundImage)
-    console.log(seasonColor)
+    console.log(backgroundColor)
     return(
-        <div style={{seasonColor}}>
+        <div >
+            <div name="info" className="info-box" style={backgroundColor}>
             <div name="picture" className="pic-box" style={{backgroundImage}}></div>
-            <div name="info" className="info-box">
                 <h3>Place: {place}</h3>
                 <h5>Price: {priceIcon}</h5>
                 <h5>Time to go: {timeToGo}</h5>
