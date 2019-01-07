@@ -1,0 +1,26 @@
+.button-panel{
+    display: grid;
+    grid-template: auto auto auto auto / auto auto;
+    
+
+}
+.box-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 5px;
+    
+}
+
+.square {
+    height: 300px;
+    width: 300px;
+    border: 2px solid black;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    background: none;
+    border: 2px solid black;
+    border-radius: 4px;
+}

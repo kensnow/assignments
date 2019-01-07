@@ -1,17 +1,12 @@
-import React, {Component} from "react"
-import Squares from "./Squares"
-import ButtonBox from "./ButtonBox"
-import styles from "./styles.css"
+import React from "react"
+import Platform from "./Platform"
 
-class App extends Component {
-    render(){
-        return(
-            <div>
-                {/* <Squares/> */}
-                <ButtonBox/>
-            </div>   
-        )
-    }
+const App = () => {
+    return (
+        <Platform/>
+
+    )
+
 }
 
 export default App

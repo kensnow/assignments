@@ -1,22 +1,6 @@
 import React, {Component} from "react"
 import Squares from "./Squares"
 
-const currentStyles = [
-    {
-    id:"square-1",
-    style:"backgroundColor:white"
-    },{
-    id:"square-2",
-    style:"backgroundColor:white"
-    },{
-    id:"square-3",
-    style:"backgroundColor:white"
-    },{
-    id:"square-4",
-    style:"backgroundColor:white"
-    }
-]
-
 class Button1 extends Component {
     constructor(){
         super();
