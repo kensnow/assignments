@@ -1,0 +1,15 @@
+
+
+.container {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas: auto auto;
+    grid-gap: 10px;
+}
+
+.party-box{
+    border: 2px black solid;
+    border-radius: 6px;
+    height: 250px;
+    width: 250px;
+}
