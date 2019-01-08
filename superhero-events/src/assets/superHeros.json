@@ -1,0 +1,40 @@
+{
+    "superheros":[
+        {
+        "name":"Batman",
+        "alias":"Bruce Wayne",
+        "superpowers":["gadgets","wealth","intelligence"],
+        "backgroundImage":"batman.png"
+        },{
+        "name":"Captain America",
+        "alias":"Steve Rogers",
+        "superpowers":["agility","speed","strength"],
+        "backgroundImage":"captain_america.png"
+        },{
+        "name":"The Hulk",
+        "alias":"Bruce Banner",
+        "superpowers":["superhuman strength","regenerative healing", "self sustinence"],
+        "backgroundImage":"hulk.png"
+        },{
+        "name":"Iron Man",
+        "alias":"Tony Stark",
+        "superpowers":["wealth","intelligence","power armor suit","flight"],
+        "backgroundImage":"ironMan.png"  
+        },{
+        "name":"Spiderman",
+        "alias":"Peter Parker",
+        "superpowers":["intelligence","strength","speed","web sling","spider sense"],
+        "image":"spiderman.png"
+        },{
+        "name":"Star Lord",
+        "alias":"Peter Quill",
+        "superpowers":["strategist","firearms","flight"],
+        "backgroundImage":"star-lord.png"
+        },{
+        "name":"Superman",
+        "alias":"Clark Kent",
+        "superpowers":["invulnerability","strength","flight","super vison"],
+        "backgroundImage":"superman.png"
+        }
+    ]
+}
