@@ -1,0 +1,51 @@
+*{
+    margin:0;
+}
+li{
+    text-decoration: none;
+    font-size: 2em;
+    list-style-type: none;
+    margin: 10px 0px;
+    padding-left:15px;
+    border-left: 2px solid black;
+}
+
+ul{
+    
+}
+
+body{
+    background: grey;
+    margin-top: 60px;
+
+}
+h1{
+    font-size: 3em;
+    margin: 30px;
+}
+input{
+    height:30px;
+    margin-left:5px;
+}
+button{
+    height:35px;
+    border: 2px solid black;
+    background: inherit;
+    border-radius: 4px;
+    margin-left:5px;
+}
+
+button:hover{
+    background: darkcyan;
+    color:white;
+    transition: .4s;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:auto;
+    width: 60%;
+    background: white;
+}
