@@ -1,25 +1,16 @@
-import React, { Component } from "react"
+import React from "react"
 import HitCard from "./HitCard"
 
-class HitList extends Component {
-    constructor(){
-        super();
-        this.state = {
 
-        }
+const HitList = ({targets}) => {
 
-    }
-
-
-    render(){
-        return(
-            <div>
-                <div>HitList test</div>
-                <HitCard />
-            </div>
-        )
-    }
-
+    const targetGroup = targets.map( (target, i) => <HitCard key={i} {...target}/>)
+    return (
+        <div className="card-group">
+            
+            {targetGroup}
+        </div>
+    )
 }
 
 export default HitList

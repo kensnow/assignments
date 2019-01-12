@@ -1,8 +1,13 @@
 import React from "react"
 
-const HitCard = () => {
+const HitCard = ({name, image}) => {
+    console.log(name, image)
+    const style = {backgroundImage:`url(${image})`}
     return(
-        <div>Hit Card Test</div>
+        <div className="picture" style={style}>
+       
+            <div className="name-tag">{name}</div>
+        </div>
     )
 
 }

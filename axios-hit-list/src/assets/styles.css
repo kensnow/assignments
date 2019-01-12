@@ -1,0 +1,28 @@
+
+h1{
+    font-size: 3em;
+    text-align: center;
+}
+
+.picture{
+    height: 300px;
+    width: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.name-tag{
+    background: rgba(14, 95, 201, 0.527);
+    font-size: 2em;
+    color:white;
+    text-align: center;
+    
+}
+
+.card-group{
+    display: grid;
+    grid-template: auto auto / auto auto auto;
+    grid-gap: 25px;
+}
