@@ -1,0 +1,51 @@
+*{
+    margin:0px;
+    font-family: url("./Star_Jedi_Rounded.ttf");
+}
+nav{
+    text-align: center;
+    grid-column: 1 / 2;
+}
+body{
+    background:black;
+    display: grid;
+
+
+}
+h1{
+    color:yellow;
+    font-size: 3em;
+
+}
+
+.charCard{
+    color:yellow;
+    border: 2px solid white;
+    border-radius: 6px;
+    display: flex;
+    justify-content:center;
+    padding-top:100px;
+
+}
+
+
+
+.sideBar{
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+
+.sideBar>a{
+    color:yellow;
+    text-decoration: inherit;
+    padding: 10px;
+    
+}
+
+.infoView{
+    display:grid;
+    grid-template-columns:  1fr 1fr;
+}

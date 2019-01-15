@@ -3,7 +3,10 @@ import React from "react"
 const Nav = () => {
 
     return (
-        <h3> Nav Test</h3>
+        <nav>
+            <h1>React Wars</h1>
+            
+        </nav>
     )
 }
 
