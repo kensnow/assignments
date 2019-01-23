@@ -67,6 +67,6 @@ export default GetCharData
 
 const nextButton = () => {
     return (
-        <button onClick=><button>
+        <button><button>
     )
 }
