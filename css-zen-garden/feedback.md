@@ -1,0 +1,3 @@
+I could get nit picky, but I'm not going to. I can help you with the icons if you want. The officiall Zen Garden has the names at the bottom in columns on small screen. You can achieve this with flex, but looking at the code you have, you already knew that. 
+
+appendTodo does do too much though. I would have liked to see it calling other functions. Ideally "pure" functions. I've seen your other work, so I know you're good at writing helper functions, and organizing code, but I'm scraping for suggestions here. You've left me no choice. 

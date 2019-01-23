@@ -1,6 +1,8 @@
 import React from "react"
 import {getPrice,getSeasonColor} from "./helperFunctions"
 
+// I like that you abstracted helper functions to another file. If you want to
+// sound like a pro, you can call it "utils"
 
 const Card = ({place,price,timeToGo,backgroundImage}) => {
     let priceIcon = getPrice(price)
