@@ -14,7 +14,7 @@ app.get("/trails", (req, res) => {
     
 })
 
-app.get("/trails/:id?", (req, res) => {
+app.get("/trails/:id", (req, res) => {
    
     let id = req.params.id
   
