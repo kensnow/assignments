@@ -480,6 +480,7 @@ function playerDead (player){
 }
 
 function combatEvent(enemy, instance){
+// successfulRun is never used. I only know that because of syntax highlighting
     let sucessfulRun = false;
     let combatRoll = getRandomNum(100)
     let firstMove = true;
