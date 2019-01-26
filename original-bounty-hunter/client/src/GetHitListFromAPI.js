@@ -1,7 +1,6 @@
 import BountyCard from "./BountyCard"
 import axios from "axios"
-
-import React, { Component } from 'react'
+import React, { Component, createContext } from 'react'
 
 export default class GetHitListFromAPI extends Component {
     constructor(){

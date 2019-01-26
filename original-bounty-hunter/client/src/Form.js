@@ -28,7 +28,7 @@ export default class Form extends Component {
 
     handleSubmit(e){
         e.preventDefault()
-        let response = SendAxiosRequest(this.state)
+        let response = SendAxiosRequest(this.state, "post")
 
         this.setState(initialState)
 
