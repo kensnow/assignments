@@ -1,8 +1,10 @@
 const express = require('express')
-const app = express()
+const mongoose = require('mongoose')
 const database = require("./database")
 
 require('dotenv').config()
+
+const app = express()
 
 app.use(express.json())
 

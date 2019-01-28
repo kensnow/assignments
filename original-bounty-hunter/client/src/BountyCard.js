@@ -1,6 +1,6 @@
 import React from 'react'
 import SendAxiosRequest from './SendAxiosRequest'
-import Toggler from "./Toggler"
+import {withToggler} from "./Toggler"
 
 function BountyCard(props) {
     const { fName, lName, living, price, type, _id, on, toggle } = props

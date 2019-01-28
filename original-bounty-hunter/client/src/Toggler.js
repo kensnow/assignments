@@ -11,9 +11,9 @@ export default class Toggler extends Component {
     }
 
     toggleSwitch(){
-        this.setState( ps => {
-            on: !ps
-        })
+        this.setState( ps => ({
+            on: !ps.on
+        }))
     }    
 
     render() {
@@ -27,7 +27,7 @@ export default class Toggler extends Component {
     }
 }
 
-const withToggler = C => props => (
+export const withToggler = C => props => (
     <withToggler>
       {containerProps => <C  {...props} {...containerProps} />}
     </withToggler>
